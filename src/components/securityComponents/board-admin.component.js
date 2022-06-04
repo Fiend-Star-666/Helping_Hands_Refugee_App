@@ -38,7 +38,7 @@ export default class BoardAdmin extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="card">
         <header className="jumbotron">
           <h3>{this.state.content}</h3>
         </header>

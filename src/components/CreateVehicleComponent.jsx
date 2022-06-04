@@ -189,6 +189,7 @@ class CreateVehicleComponent extends Component {
             elementl=(            
             <div>
                 <label>Car Type:</label>
+            <div>
                 <select placeholder="Car Type" value={this.state.type} onChange={this.changeTypeHandler}>
                     <option>--Choose Car Type--</option>
                         <option value='Economy'>{'Economy'}</option>,
@@ -199,6 +200,7 @@ class CreateVehicleComponent extends Component {
                         <option value='Luxury'>{'Luxury'}</option>,
                         <option value='Premium'>{'Premium'}</option>
                 </select>
+            </div>
             </div>
             );
         }
@@ -228,11 +230,13 @@ class CreateVehicleComponent extends Component {
             elementl=(            
             <div>
                 <label>Van Type:</label>
+             <div>
                 <select placeholder="Van Type" value={this.state.type} onChange={this.changeTypeHandler}>
                     <option>--Choose Van Type--</option>
                         <option value='Passenger'>{'Passenger'}</option>,
                         <option value='Cargo'>{'Cargo'}</option>
                 </select>
+            </div>
             </div>
             );
         }
@@ -249,6 +253,7 @@ class CreateVehicleComponent extends Component {
 
                                     <div className = "form-group">
                         					<label>Vehicle Type:</label>
+                                            <div>
 					                        <select placeholder="Vehicle Type" value={this.state.vtype} onChange={this.changeVTypeHandler}>
 						                        <option>--Choose Vehicle Type--</option>
 		                                            <option value='Car'>{'Car'}</option>,
@@ -257,6 +262,7 @@ class CreateVehicleComponent extends Component {
                                                     <option value='Van'>{'Van'}</option>,
                                                     <option value='Motorcycle'>{'Motorcycle'}</option>,
 					                        </select>
+                                            </div>
 				                        </div>
 
 
@@ -318,6 +324,7 @@ class CreateVehicleComponent extends Component {
 
                                         <div>
                         					<label>Status:</label>
+                                            <div>
 					                        <select placeholder="Status" value={this.state.status} onChange={this.changeStatusHandler}>
 						                        <option>--Choose Status--</option>
 		                                            <option value='Available'>{'Available'}</option>,
@@ -326,9 +333,10 @@ class CreateVehicleComponent extends Component {
                                                     <option value='Lost'>{'Lost'}</option>,
                                                     <option value='BeingServiced'>{'BeingServiced'}</option>,
                                                     <option value='Other'>{'Other'}</option>
-
 					                        </select>
-				                        </div>
+                                            </div>
+                                        </div>
+                                        <br></br>
 
                                         <div className = "form-group">
                                             <label > Type: </label>
@@ -340,7 +348,8 @@ class CreateVehicleComponent extends Component {
     
                                         <div>
                         					<label>Car Rental Location:</label>
-					                        <select placeholder="Car Rental Location" value={this.state.carRentalLocation} onChange={this.changeCarRentalLocationHandler}>
+					                        <div>
+                                            <select placeholder="Car Rental Location" value={this.state.carRentalLocation} onChange={this.changeCarRentalLocationHandler}>
 						                        <option>--Choose Location--</option>
 		                                            {
                                                         this.state.selectedCRLocation.map(element =>{
@@ -348,15 +357,19 @@ class CreateVehicleComponent extends Component {
                                                         })
                                                     }
 					                        </select>
+                                            </div>
                                         </div>
+                                        <br></br>
 
                                         <div className = "form-group">
                         					<label>Parking Stall:</label>
+                                            <div>
 					                        <select placeholder="Parking Stall" value={this.state.parkingstall} onChange={this.changeParkingStallHandler}>
 						                        <option>--Choose to Add Parking Stall--</option>
 		                                            <option value='None'>{'None'}</option>,
                                                     <option value='Add a Value'>{'Add a Value'}</option>
 					                        </select>
+                                            </div>
 				                        </div>
                                         {pstall_stallNumber}
                                         {pstall_Locationid}                                       

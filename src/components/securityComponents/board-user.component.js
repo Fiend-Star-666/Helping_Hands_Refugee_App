@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Redirect, BrowserRouter as Router, Route, Switch,Link} from 'react-router-dom';
 
 import UserService from "../../services/user.service";
 import EventBus from "../../common/EventBus";
@@ -38,10 +39,17 @@ export default class BoardUser extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="card">
         <header className="jumbotron">
           <h3>{this.state.content}</h3>
         </header>
+
+      <li>
+        <Link to={"/home/system"} >
+          View System
+        </Link>
+      </li>
+      
       </div>
     );
   }

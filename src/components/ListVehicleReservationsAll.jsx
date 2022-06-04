@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import VehicleService from '../services/VehicleService';
+import Moment from 'moment';
 
 class ListVehicleReservationsAll extends Component{
     constructor(props){
@@ -17,12 +18,18 @@ class ListVehicleReservationsAll extends Component{
     }
 
     viewVehicle(id){
-        this.props.history.push(`/vehicle/view/${id}`);
+            VehicleService.getVehicleByVRId(id).then((res) =>
+            {
+                   this.state.vehicleid=res.data;
+                   this.props.history.push(`/vehicle/view/${this.state.vehicleid}`);  
+            });
+    
     }
 
 
 
     render() {
+        Moment.locale('en')
         return (
             
             <div>
@@ -32,7 +39,7 @@ class ListVehicleReservationsAll extends Component{
                 </div>
                 <br></br>
 
-                <div className = "row" >
+                <div className = "row">
                     <table className="table table-striped table-bordered">
                         <thead>
                             <tr>
@@ -45,6 +52,7 @@ class ListVehicleReservationsAll extends Component{
                                 <th>Actions</th>
                             </tr>
                         </thead>
+                        
                         <tbody>
                         {
                             this.state.vrReservations.map(
@@ -52,12 +60,12 @@ class ListVehicleReservationsAll extends Component{
                                 <tr key = {vrReservation.id}>
                                     <td>    {vrReservation.id}                              </td>
                                     <td>    {vrReservation.reservationNumber}               </td>
-                                    <td>    {vrReservation.creationDate.substr(0,10)}       </td>
-                                    <td>    {vrReservation.dueDate.substr(0,10)}            </td>
+                                    <td style={{width: '200px'}}>    {Moment(vrReservation.creationDate).format('DD-MM-yyyy')}                    </td>
+                                    <td style={{width: '200px'}}>    {Moment(vrReservation.dueDate).format('DD-MM-yyyy')}                         </td>
                                     <td>    {vrReservation.pickupLocationName}              </td>
                                     <td>    {vrReservation.returnLocationName}              </td>
                                     <td>
-                                    <button style={{marginLeft: "10px"}} onClick={ () => this.viewVehicle(vrReservation.vehicle.id)} className="btn btn-dark">View Vehicle</button>
+                                    <button style={{marginLeft: "10px"}} onClick={ () => this.viewVehicle(vrReservation.id)} className="btn btn-primary btn-sm">View Vehicle</button>
                                     </td>
                                     
                                     

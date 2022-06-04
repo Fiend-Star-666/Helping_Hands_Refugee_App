@@ -21,6 +21,7 @@ export default class Profile extends Component {
   }
 
   render() {
+    
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />
     }
@@ -28,7 +29,7 @@ export default class Profile extends Component {
     const { currentUser } = this.state;
 
     return (
-      <div className="container">
+      <div className="card-container">
         {(this.state.userReady) ?
         <div>
         <header className="jumbotron">
@@ -75,58 +76,64 @@ export default class Profile extends Component {
       <strong>Actions:</strong>
       <br></br>
       <br></br>
-
+<br></br>
 
       <li>
         <Link to={"/account/register/admin"} >
                     Create a Receptionist Account
         </Link>
       </li>
+      <br></br>
 
       <li>
         <Link to={"/account/register/member"} >
                     Create a Member Account
         </Link>
       </li>
+      <br></br>
 
       <li>
         <Link to={"/admin/carrentallocation/add"} >
                     Create a Car Rental Location
         </Link>
       </li>
+      <br></br>
   
       <li>
         <Link to={"/vehicle/add"} >
                     Add a Vehicle
         </Link>
       </li>
+      <br></br>
       
       <li>
         <Link to={"/createvehiclereservation"} >
                     Create a vehicle Reservation
         </Link>
       </li>
+      <br></br>
 
       
-      <br></br>
       
       <li>
         <Link to={"/home/system"} >
           View System
         </Link>
       </li>
-
+      
       <li>
         <Link to={"/carrentallocations/view"} >
                     View all carRentalLocation
         </Link>
       </li>
+      <br></br>
 
       <li>
         <Link to={"/admin/account/view/all"} >
                     View all Accounts
         </Link>
       </li>
+      <br></br>
 
 
       <li>
@@ -134,17 +141,19 @@ export default class Profile extends Component {
                     View all Vehicle Reservation
         </Link>
       </li>
+      <br></br>
 
       <li>
         <Link to={"/vehicle/view"} >
                     View all Vehicles
         </Link>
       </li>
+      <br></br>
             
       </div>
     );
   }
-}
+ }
 
 /*
     "/carrentallocation/vehicle/view/:id" {ViewCRLocationForComponent}/>

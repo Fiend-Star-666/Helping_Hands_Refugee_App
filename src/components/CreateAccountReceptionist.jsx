@@ -230,7 +230,8 @@ class CreateAccountReceptionist extends Component {
                   </div>
 
                   <div>
-                        <label>Account Status Status:</label>
+                        <label>Account Status:</label>
+                        <div>
 					              <select placeholder="Account Status" value={this.state.status} onChange={this.changeStatusHandler}>
 						              <option>--Choose Status--</option>
 		                            <option value='Active'>{'Active'}</option>,
@@ -239,8 +240,9 @@ class CreateAccountReceptionist extends Component {
                                  <option value='Blacklisted'>{'Blacklisted'}</option>,
                                   <option value='None'>{'None'}</option>,
 					                 </select>
-				            </div>
-
+                      </div>
+                    </div>
+<br></br>
                   <button className="btn btn-success" onClick={this.saveReceptionistAccount}>save </button>
                   
                   <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}> Cancel </button>

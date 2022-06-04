@@ -73,7 +73,8 @@ class CreateVehicleLogComponent extends Component {
 
                                     <div>
                         					<label>Vehicle Log Type:</label>
-					                        <select placeholder="Vehicle Log Type" value={this.state.type} onChange={this.changeTypeHandler}>
+					                        <div>
+                                            <select placeholder="Vehicle Log Type" value={this.state.type} onChange={this.changeTypeHandler}>
 						                        <option>--Choose Vehicle Log Type--</option>
 		                                            <option value='Accident'>{'Accident'}</option>,
                                                     <option value='Refueling'>{'Refueling'}</option>,
@@ -82,7 +83,9 @@ class CreateVehicleLogComponent extends Component {
                                                     <option value='Repair'>{'Repair'}</option>,
                                                     <option value='Other'>{'Other'}</option>
 					                        </select>
+                                            </div>
 				                        </div>
+                                        <br></br>
 
                                         <div className = "form-group">
                                             <label > Description: </label>

@@ -19,6 +19,7 @@
     "bootstrap": "^4.6.1",
     "date-fns": "^2.28.0",
     "joi": "^17.6.0",
+    "moment": "^2.29.3",
     "react": "^17.0.1",
     "react-bootstrap": "^2.4.0",
     "react-date-picker": "^8.4.0",

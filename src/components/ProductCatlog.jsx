@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useState } from 'react';
 import ProductTile from './ProductTile';
-import '../css/viewCar.css';
+
 import {products} from './products'
 
 class ProductCatlog extends Component {

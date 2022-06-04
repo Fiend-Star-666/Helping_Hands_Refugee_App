@@ -38,15 +38,15 @@ class ListVehicleOfCRlLocationComponents extends Component{
 
     render() {
         return (
-            <div>
+          
+              <div className="container">
+
                 <h2 className="text-center"> Vehicle List at Car Rental Location:{this.state.id}</h2>
-                <div className= "row">
                 
-                </div>
                 <br></br>
 
-                <div className = "row" >
-                    <table className="table table-striped table-bordered">
+                <div className = "row justify-content-md-center" >
+                    <table className="table table-striped table-bordered ">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -82,13 +82,11 @@ class ListVehicleOfCRlLocationComponents extends Component{
                                         <td>    {vehicle.status}                  </td>
                                         <td>    {vehicle.type}                    </td>
                                         
-                                        <td>
-                                        <button style={{marginLeft: "10px"}} onClick={ () => this.deleteVehicle(vehicle.id)} className="btn btn-danger">Delete </button>
-                                        <button style={{marginLeft: "10px"}} onClick={ () => this.viewVehicle(vehicle.id)} className="btn btn-info">View Vehicle</button>
-                                        <button style={{marginLeft: "10px"}} onClick={ () => this.viewVehicleReservation(vehicle.id)} className="btn btn-info">View Reservations</button>
-
-                                        </td>
-                                        
+                                        <td className='btn-group'>
+                                            <button style={{marginLeft: "10px"}} onClick={ () => this.viewVehicle(vehicle.id)} className="btn btn-info btn-sm">View Vehicle</button>
+                                            <button style={{marginLeft: "10px"}} onClick={ () => this.viewVehicleReservation(vehicle.id)} className="btn btn-info btn-sm">View Reservations</button>
+                                            <button style={{marginLeft: "10px"}} onClick={ () => this.deleteVehicle(vehicle.id)} className="btn btn-danger btn-sm">Delete </button>
+                                        </td>                                        
                                     </tr>
                                 )
                             }
@@ -96,6 +94,7 @@ class ListVehicleOfCRlLocationComponents extends Component{
                     </table>
                 </div>
             </div>
+         
         )
     }
 }

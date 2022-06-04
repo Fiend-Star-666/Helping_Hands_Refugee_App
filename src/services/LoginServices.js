@@ -5,6 +5,7 @@ const API_BASE_URL = "http://localhost:8080/api/v1";
 class LoginServices{
 
     loginAccount(loginDetails){
+        console.log("hehe");
         return axios.post(API_BASE_URL+'/signin',loginDetails);
     }
 

@@ -45,8 +45,8 @@ class ViewPricing extends Component{
                       
 
             <div className="container" >    
-            <div className='card' style={{color:'black' }}>
-                <h2 >Vehicle Charges:</h2> 
+            <div className='card' style={{backgroundColor:'purple', boxShadow: '10px 10px' }}>
+                <h2 style={{color:'white'}}>Vehicle Charges:</h2> 
             </div> 
                 <table className="table table-striped table-bordered" >
                     <thead>
@@ -108,8 +108,8 @@ class ViewPricing extends Component{
             </div>
             <br></br>
             <div className="container">
-                <div className='card'>
-                    <h2 >Optional Charges:</h2>
+                <div className='card'  style={{backgroundColor:'purple', boxShadow: '10px 10px' }}>
+                    <h2 style={{color:'white'}}>Optional Charges:</h2>
                 </div>         
                 <table className="table table-striped table-bordered">
                     <thead>

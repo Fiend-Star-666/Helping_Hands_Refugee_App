@@ -46,31 +46,36 @@ function ForgotPassword(){
     }
         
     else{
-            console.log("Both Passwords Does not match");
+            alert("Both Passwords Does not match");
         }
     }
     
     return(
-                    <div className= "card"  >
+                    <div className= "card col-md-4 offset-md-3 my-5 " style={{backgroundColor:'skyblue', margin:'auto'}} >
                         <h1>Forgot Password</h1>
-
                         <label>Email Address:</label>
-                        <input type="email"  placeholder="someone@gmail.com" name="email" onChange={handleEmailChange} value={email}/>
-                        <br></br>
+                        <div className='form-group'>
+                        <input type="email"  placeholder="someone@email.com" name="email" onChange={handleEmailChange} value={email}/>
+                        </div>
+                        
 
                         <label>Driver Licence:</label>
+                        <div className='form-group'>
                         <input type="text"  placeholder="Driver Licence" name= "driverLicense" onChange={handleLicenseChange} value={driverLicense}/>
-                        <br></br>
-
+                        </div>
+                        
                         <label>Enter New Password:</label>
+                        <div className='form-group'>
                         <input  type="password" placeholder="new password" name="password" onChange={handlePasswordChange} value={password} />
-                        <br></br>
+                        </div>
 
                         <label>Confirm New Password:</label>
+                        <div className='form-group'>
                         <input type="password" placeholder="new password" name="confirmPassword" onChange={handleConfirmPasswordChange} value={confirmPassword} />
-                        <br></br>
-
-                        <button onClick={saveNewPassword}>Submit</button>
+                        </div>
+                        <div>
+                        <button className='btn-dark' onClick={saveNewPassword}>Submit</button>
+                        </div>
                         <br></br>                   
                      </div>
     )

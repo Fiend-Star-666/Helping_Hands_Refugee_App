@@ -64,7 +64,9 @@ class CreateAccountMember extends Component {
 
         VehicleService.createMemberAccount(account).then( res => {
                 this.props.history.push('/account/register/member');
-        });
+        }).catch(function (error){
+            alert('Please Check your Details or An account with Same details already exists');
+          });
     }
     
     
@@ -90,8 +92,6 @@ class CreateAccountMember extends Component {
     changeDriverLicenseNumberHandler = (event) => {
         this.setState({driverLicenseNumber: event.target.value});
     }
-
-
     
      changeDriverLicenseExpiryHandler(date) {  
         this.setState({  
@@ -194,7 +194,8 @@ class CreateAccountMember extends Component {
 
                                          <div>
                         					<label>Account Status:</label>
-					                        <select placeholder="Account Status" value={this.state.status} onChange={this.changeStatusHandler}>
+					                        <div>
+                                                <select placeholder="Account Status" value={this.state.status} onChange={this.changeStatusHandler}>
 						                        <option>--Choose Status--</option>
 		                                            <option value='Active'>{'Active'}</option>,
                                                     <option value='Closed'>{'Closed'}</option>,
@@ -202,8 +203,9 @@ class CreateAccountMember extends Component {
                                                     <option value='Blacklisted'>{'Blacklisted'}</option>,
                                                     <option value='None'>{'None'}</option>,
 					                        </select>
-				                        </div>
-
+                                            </div>
+                                        </div>
+            <br></br>
                                        
 
                                             <button className="btn btn-success" onClick={this.saveMemberAccount}>Save</button>

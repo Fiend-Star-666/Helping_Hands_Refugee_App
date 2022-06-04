@@ -234,33 +234,39 @@ if(services=='True'){
                 <div className = "form-group mx-4">
                     <label> 
                     Driver:
+                    <div>
                         <select value={driver} onChange={handleDriver} className='mx-3'>
                             <option  value={null}> {"Choose Yes/No"} </option>
                         <option  value={"True"}> {"Yes"} </option>
                         <option  value={"False"}> {"No"} </option>  
                         </select>
+                    </div>
                     </label>
                 </div>
 
                 <div className = "form-group mx-4">
                     <label> 
                     Roadside Assistance:
+                    <div>
                         <select value={roadsideAssistance} onChange={handleRoadsideAssistance} className='mx-3'>
                         <option  value={null}> {"Choose Yes/No"} </option>
                         <option  value={"True"}> {"Yes"} </option>
                         <option  value={"False"}> {"No"} </option>  
                         </select>
+                    </div>
                     </label>
                 </div>
                 
                 <div className = "form-group mx-4">
                     <label> 
                     Wifi:
+                    <div>
                         <select value={wifi} onChange={handleWifi} className='mx-3'>
                         <option  value={null}> {"Choose Yes/No"} </option>
                         <option  value={"True"}> {"Yes"} </option>
                         <option  value={"False"}> {"No"} </option>  
                         </select>
+                    </div>
                     </label>
             </div>
             </div>
@@ -276,33 +282,39 @@ if(equipment=='True'){
                 <div className = "form-group mx-4">
                 <label> 
                 Navigation:
+                <div>    
                     <select value={navigation} onChange={handleNavigation} className='mx-3'>                                                            
                     <option  value={null}> {"Choose Yes/No"} </option>
                     <option  value={"True"}> {"Yes"} </option>
                     <option  value={"False"}> {"No"} </option>  
                     </select>
+                </div>
                 </label>
             </div>
 
             <div className = "form-group mx-4">
                 <label> 
                 Child Seat:
+                <div>    
                     <select value={childSeat} onChange={handleChildSeat} className='mx-3'>
                     <option  value={null}> {"Choose Yes/No"} </option>
                     <option  value={"True"}> {"Yes"} </option>
                     <option  value={"False"}> {"No"} </option>  
                     </select>
+                </div>
                 </label>
             </div>
 
             <div className = "form-group mx-4">
                 <label> 
                 SkiRack:
+                <div>   
                     <select value={skiRack} onChange={handleSkiRack} className='mx-3'>
                     <option  value={null}> {"Choose Yes/No"} </option>
                     <option  value={"True"}> {"Yes"} </option>
                     <option  value={"False"}> {"No"} </option>  
                     </select>
+             </div>
                 </label>
             </div>
         </div>
@@ -318,33 +330,39 @@ if(rentalInsurance=='True'){
         <div className = "form-group mx-4">
             <label> 
             Personal Insurance:
+            <div>
                 <select value={personalInsurance} onChange={handlePersonalInsurance} className='mx-3'>                                                            
                 <option  value={null}> {"Choose Yes/No"} </option>
                 <option  value={"True"}> {"Yes"} </option>
                 <option  value={"False"}> {"No"} </option>  
                 </select>
+            </div>
             </label>
         </div>
 
         <div className = "form-group mx-4">
             <label> 
             Belonging Insurance:
+            <div>
                 <select value={belongingInsurance} onChange={handleBelongingInsurance} className='mx-3'>
                 <option  value={null}> {"Choose Yes/No"} </option>
                 <option  value={"True"}> {"Yes"} </option>
                 <option  value={"False"}> {"No"} </option>  
                 </select>
+            </div>
             </label>
         </div>
         
         <div className = "form-group mx-4">
             <label> 
             Liability Insurance:
+            <div>
                 <select value={liabilityInsurance} onChange={handleLiabilityInsurance} className='mx-3'>
                 <option  value={null}> {"Choose Yes/No"} </option>
                 <option  value={"True"}> {"Yes"} </option>
                 <option  value={"False"}> {"No"} </option>  
                 </select>
+            </div>
             </label>
         </div>
     </div>
@@ -437,11 +455,13 @@ return(
                                     <div>
                                         <div>
                                             <label style={{fontSize: 30}}><b>Services required:</b>
+                                            <div>
                                                 <select value={services} onChange={handleServices} className='mx-3'>
                                                         <option  value={null}> {"Choose Yes/No"} </option>
                                                         <option  value={"True"}> {"Yes"} </option>
                                                         <option  value={"False"}> {"No"} </option>  
                                                 </select>
+                                                </div>
                                             </label>
                                         </div>
                                         {service}
@@ -450,11 +470,13 @@ return(
                                     <div>
                                         <div>
                                             <label style={{fontSize: 30}}><b>Equipment required:</b>
+                                            <div>
                                                 <select value={equipment} onChange={handleEquipment} className='mx-3'>
                                                         <option  value={null}> {"Choose Yes/No"} </option>
                                                         <option  value={"True"}> {"Yes"} </option>
                                                         <option  value={"False"}> {"No"} </option>  
                                                 </select>
+                                            </div>
                                             </label>
                                         </div>                  
                                             {Equipment}
@@ -463,11 +485,13 @@ return(
                                     <div>
                                         <div>
                                             <label style={{fontSize: 30}}><b>Insurance options:</b>
+                                            <div>
                                                 <select value={rentalInsurance} onChange={handleRentalInsurance} className='mx-3'>
                                                         <option  value={null}> {"Choose Yes/No"} </option>
                                                         <option  value={"True"}> {"Yes"} </option>
                                                         <option  value={"False"}> {"No"} </option>  
                                                 </select>
+                                            </div>
                                             </label>
                                         </div>
                                             {insurance}
@@ -479,11 +503,13 @@ return(
                                                 <div className = "form-group mx-4">
                                                     <label> 
                                                     Additional Driver:
+                                                    <div>
                                                         <select value={additionalDriver} onChange={handleAdditionalDriver} className='mx-3'>
                                                             <option  value={null}> {"Choose Yes/No"} </option>
                                                         <option  value={"True"}> {"Yes"} </option>
                                                         <option  value={"False"}> {"No"} </option>  
                                                         </select>
+                                                    </div>
                                                     </label>
                                                 </div>
                                         </label>

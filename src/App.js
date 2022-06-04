@@ -223,7 +223,7 @@ class App extends Component{
                           <Route path="/forgotPassword" component={ForgotPassword} />
                           <Route path="/updateVehicleLog/:id" component = {UpdateVehicleLog}/>
                           <Route exact path="/ViewPricing" component={ViewPricing} />
-                          <Route path="" component={AboutUs}/>
+                          <Route path="/aboutUs" component={AboutUs}/>
                           <Route  component={error} />                          
                           <Route/>  
                       </Switch>

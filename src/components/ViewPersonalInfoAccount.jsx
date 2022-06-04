@@ -37,7 +37,7 @@ class ViewPersonalInfoAccount extends Component{
                                     <th>Name</th>
                                     <th>Email ID</th>
                                     <th>Phone Number</th>
-                                    <th>Street Address</th>
+                                    <th>StreetAddress</th>
                                     <th>Pincode</th>
                                     <th>City</th>
                                     <th>State</th>
