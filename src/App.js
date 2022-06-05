@@ -34,12 +34,12 @@ import BoardUser from './components/securityComponents/board-user.component';
 import Register from './components/securityComponents/register.component';
 import EventBus from './common/EventBus';
 import UpdateVehicleLog from './components/UpdateVehicleLog';
-import ProductTile from './components/ProductTile';
-import ProductCatlog from './components/ProductCatlog';
-import {products} from './components/products';
+
+
 import error from './components/error';
 import ForgotPassword from './components/ForgotPassword'
 import ViewPricing from './components/ViewPricing';
+import Catalog from './components/Catalog';
 import AboutUs from './components/AboutUs';
 
 class App extends Component{
@@ -219,10 +219,11 @@ class App extends Component{
                           <Route path="/account/register/admin" component={CreateAccountReceptionist}/>
                           <Route path="/home" component={Home}/>
                           <Route path="/vehicle/:id/createvehiclelog" component={CreateVehicleLogComponent}/>
-                          <Route path="/viewCar" component={ProductCatlog}/>
+                        
                           <Route path="/forgotPassword" component={ForgotPassword} />
                           <Route path="/updateVehicleLog/:id" component = {UpdateVehicleLog}/>
                           <Route exact path="/ViewPricing" component={ViewPricing} />
+                          <Route path="/viewCar" component= {Catalog}/>
                           <Route path="/aboutUs" component={AboutUs}/>
                           <Route  component={error} />                          
                           <Route/>  

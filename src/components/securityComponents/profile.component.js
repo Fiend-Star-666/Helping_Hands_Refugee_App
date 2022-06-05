@@ -156,6 +156,25 @@ export default class Profile extends Component {
  }
 
 /*
+
+
+
+
+
+<div class="row"><div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0"><div class="icon-box wow fadeInUp animated" data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: fadeInUp;"><div class="icon"><i class="bx bxl-dribbble"></i></div><h4 class="title"><a href="">MAXIMUM CHOICE</a></h4><p class="description">We give you the widest number of travel options across thousands of routes.</p></div></div><div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0"><div class="icon-box wow fadeInUp animated" data-wow-delay="1.2s" style="visibility: visible; animation-delay: 1.2s; animation-name: fadeInUp;"><div class="icon"><i class="bx bx-file"></i></div><h4 class="title"><a href="">SUPERIOR CUSTOMER SERVICE</a></h4><p class="description">We put our experience and relationships to good use and are available to solve your travel issues.</p></div></div><div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0"><div class="icon-box wow fadeInUp animated" data-wow-delay="1.4s" style="visibility: visible; animation-delay: 1.4s; animation-name: fadeInUp;"><div class="icon"><i class="bx bx-tachometer"></i></div><h4 class="title"><a href="">LOWEST PRICES</a></h4><p class="description">We always give you the lowest price with the best partner offers.</p></div></div><div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0"><div class="icon-box wow fadeInUp animated" data-wow-delay="1.6s" style="visibility: visible; animation-delay: 1.6s; animation-name: fadeInUp;"><div class="icon"><i class="bx bx-world"></i></div><h4 class="title"><a href="">UNMATCHED BENEFITS</a></h4><p class="description">We take care of your travel beyond ticketing by providing you with innovative and unique benefits.</p></div></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+/*
     "/carrentallocation/vehicle/view/:id" {ViewCRLocationForComponent}/>
           
     "/carrentallocation/:id/vehicles" {ListVehicleOfCRLocationComponents}/>

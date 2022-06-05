@@ -23,7 +23,6 @@ class ViewPricing extends Component{
 
      return(
         <div style={{  
-            
                 // backgroundImage:"url('/Images/pricing.jpg')",
                 // //objectFit: 'cover',
                 // width: '100vw',
@@ -35,8 +34,6 @@ class ViewPricing extends Component{
                 // backgroundRepeat: 'no-repeat',
                 // backgroundAttachment: 'fixed',
                 // backgroundPosition: 'fixed',
-                
-                
             }}> 
             <br></br>
             <br></br>
@@ -46,7 +43,7 @@ class ViewPricing extends Component{
 
             <div className="container" >    
             <div className='card' style={{backgroundColor:'purple', boxShadow: '10px 10px' }}>
-                <h2 style={{color:'white'}}>Vehicle Charges:</h2> 
+                <h2 style={{color:'white',textShadow: '1px 2px'}}>Vehicle Charges:</h2> 
             </div> 
                 <table className="table table-striped table-bordered" >
                     <thead>
@@ -109,7 +106,7 @@ class ViewPricing extends Component{
             <br></br>
             <div className="container">
                 <div className='card'  style={{backgroundColor:'purple', boxShadow: '10px 10px' }}>
-                    <h2 style={{color:'white'}}>Optional Charges:</h2>
+                    <h2 style={{color:'white', textShadow: '1px 2px'}}>Optional Charges:</h2>
                 </div>         
                 <table className="table table-striped table-bordered">
                     <thead>
@@ -169,12 +166,8 @@ class ViewPricing extends Component{
             
                 </table>
             </div>
-    <br></br>
-
-
+        <br></br>
         </div>
-
-
 
 
      ); 

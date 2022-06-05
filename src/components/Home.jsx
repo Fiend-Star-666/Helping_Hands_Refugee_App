@@ -42,13 +42,16 @@ export default function Home() {
               //justifyContent: "center",
               
             }}>
-                <h2>Own the experience,<br></br>not the ride</h2>
-                <p>Rent Vehicles Around you</p>
+              <div>
+                <h1 style={{color:'white', textShadow:'1px 2px'}}>Own the experience,<br></br>not the ride</h1>
+                <p style={{color:'white', textShadow:'1px 1px'}}>Rent Vehicles Around you</p>
+                </div>
               </div>
 
               
           </div>
     </div>
+    
 
   );
 }

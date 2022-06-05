@@ -112,7 +112,8 @@ class CreateAccountMember extends Component {
     render() {
 
         return (
-            <div>
+            
+            <div style={{backgroundColor: ''}}>
                 <br></br>
                    <div className="container">
                         <div className="row">
