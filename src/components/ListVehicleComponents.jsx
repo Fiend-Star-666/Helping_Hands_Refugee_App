@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import VehicleService from '../services/VehicleService';
+import AuthService from '../services/auth.service';
 
 class ListVehicleComponents extends Component{
 
@@ -7,14 +8,17 @@ class ListVehicleComponents extends Component{
         super(props) 
 
         this.state = {
-            vehicles: []
+            vehicles: [],
+            showAdminBoard: false
+
         }
         this.addVehicle = this.addVehicle.bind(this);
         //this.editVehicle = this.editVehicle.bind(this);
         this.deleteVehicle = this.deleteVehicle.bind(this);
         this.addVehicleLog = this.addVehicleLog.bind(this);
-
     }
+
+    
 
     addVehicleLog(vehicleId){
         this.props.history.push(`/vehicle/${vehicleId}/createvehiclelog`);
@@ -46,6 +50,16 @@ class ListVehicleComponents extends Component{
     */
     
     componentDidMount(){
+
+        const user = AuthService.getCurrentUser();
+
+        if (user) {
+          this.setState({
+            currentUser: user,
+            showAdminBoard: user.roles.includes("ROLE_ADMIN"),
+          });
+        }
+
         VehicleService.getVehicles().then((res) => 
         { 
             this.setState({ vehicles: res.data});
@@ -54,6 +68,8 @@ class ListVehicleComponents extends Component{
     
 
     render() {
+        const { currentUser, showAdminBoard } = this.state;
+
         return (
 
           <div>   
@@ -108,9 +124,14 @@ class ListVehicleComponents extends Component{
                                       <div className="btn-group">
                                         <button style={{marginLeft: "10px", marginRight: "10px" }} onClick={ () => this.viewVehicle(vehicle.id)} className="btn btn-info">View Vehicle</button>
 
-                                        <button style={{marginRight: "10px" , marginRight: "10px"}} onClick={ () => this.addVehicleLog(vehicle.id)} className="btn btn-success">Add Vehicle Log </button>
-
-                                        <button style={{marginLeft: "10px" , marginRight: "10px"}} onClick={ () => this.deleteVehicle(vehicle.id)} className="btn btn-danger">Delete </button>
+                                        {showAdminBoard && (
+                                            <button style={{marginRight: "10px" , marginRight: "10px"}} onClick={ () => this.addVehicleLog(vehicle.id)} className="btn btn-success">Add Vehicle Log </button>
+                                        )}
+                                        
+                                        
+                                        {showAdminBoard && (
+                                            <button style={{marginLeft: "10px" , marginRight: "10px"}} onClick={ () => this.deleteVehicle(vehicle.id)} className="btn btn-danger">Delete </button>
+                                        )}
                                       </div>
                                         </td>
                                         

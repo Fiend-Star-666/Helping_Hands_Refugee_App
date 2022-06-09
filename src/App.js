@@ -41,6 +41,7 @@ import ForgotPassword from './components/ForgotPassword'
 import ViewPricing from './components/ViewPricing';
 import Catalog from './components/Catalog';
 import AboutUs from './components/AboutUs';
+import { NikeCard } from './components/NikeCard';
 
 class App extends Component{
   constructor(props) {
@@ -114,13 +115,7 @@ class App extends Component{
               </li>
             )}
 
-            {showAdminBoard && (
-            <li className="nav-item">
-            <Link to={"/account/register/admin"} className="nav-link">
-              Register Admin
-            </Link>
-            </li>
-            )}
+            
 
 
             {currentUser && (
@@ -155,6 +150,16 @@ class App extends Component{
 
           {currentUser ? (
             <div className="navbar-nav ml-auto">
+
+            {showAdminBoard && (
+            <li className="nav-item">
+            <Link to={"/account/register/admin"} className="nav-link">
+              Register Admin
+            </Link>
+            </li>
+            )}
+
+
               <li className="nav-item">
                 <Link to={"/profile"} className="nav-link">
                   Profile
@@ -225,6 +230,8 @@ class App extends Component{
                           <Route exact path="/ViewPricing" component={ViewPricing} />
                           <Route path="/viewCar" component= {Catalog}/>
                           <Route path="/aboutUs" component={AboutUs}/>
+                          <Route path="/nike" component={NikeCard}/>
+
                           <Route  component={error} />                          
                           <Route/>  
                       </Switch>

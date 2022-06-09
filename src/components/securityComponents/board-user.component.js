@@ -3,6 +3,84 @@ import {Redirect, BrowserRouter as Router, Route, Switch,Link} from 'react-route
 
 import UserService from "../../services/user.service";
 import EventBus from "../../common/EventBus";
+import { motion, useMotionValue, useTransform } from "framer-motion";
+import styled from "styled-components";
+
+const CardWrapper = styled.div`
+  width: 100%;
+  perspective: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const CardContainer = styled(motion.div)`
+  width: 210px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 25px;
+  box-shadow: 0 2px 7px 1px rgba(31, 31, 31, 0.2);
+  background-color: #a6a6ed;
+  color: #fff;
+  position: relative;
+  cursor: grab;
+`;
+
+
+const BottomContainer = styled.div`
+  display: flex;
+  flex: 0.8;
+  padding: 0 1em;
+`;
+
+
+const DetailsContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5em 6px 0 6px;
+  line-height: 1.4;
+`;
+
+const MediumText = styled.span`
+  font-size: 18px;
+  color: #fff;
+  font-weight: 800;
+  text-align: center;
+`;
+
+
+
+const SpacedHorizontalContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const BuyButton = styled.button`
+  padding: 10px 16px;
+  background-color: #400080 ;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+  border: 3px solid transparent;
+  outline: none;
+  cursor: pointer;
+  transition: all 290ms ease-in-out;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: #cd00cd;
+    color: #fff;
+    border: 3px solid #fff;
+  }
+`;
+
+
 
 export default class BoardUser extends Component {
   constructor(props) {
@@ -41,15 +119,82 @@ export default class BoardUser extends Component {
     return (
       <div className="card">
         <header className="jumbotron">
-          <h3>{this.state.content}</h3>
+          <h3 style={{textAlign:'center'}}>User Board</h3>
         </header>
 
-      <li>
-        <Link to={"/home/system"} >
-          View System
-        </Link>
-      </li>
-      
+        <CardWrapper>
+          <CardContainer
+            drag
+            dragElastic={0.16}
+            dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+            whileTap={{ cursor: "grabbing" }}
+          >
+            <BottomContainer>
+              <Link to={"/carrentallocations/view"} >
+                <DetailsContainer>
+                  <SpacedHorizontalContainer>
+                    <MediumText>View all Rental Locations</MediumText>
+                  </SpacedHorizontalContainer>
+                  <BuyButton>view</BuyButton>
+                </DetailsContainer>
+              </Link>
+        
+          </BottomContainer>
+          </CardContainer>
+           <span>
+            &emsp;
+            &emsp;
+            &emsp;
+          </span>
+
+          <CardContainer
+            drag
+            dragElastic={0.16}
+            dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+            whileTap={{ cursor: "grabbing" }}
+          >
+            <BottomContainer>
+              <Link to={"/vehicle/view"} >
+                <DetailsContainer>
+                  <SpacedHorizontalContainer>
+                    <MediumText>View all Vehicles</MediumText>
+                  </SpacedHorizontalContainer>
+                  <BuyButton>view</BuyButton>
+                </DetailsContainer>
+              </Link>
+        
+          </BottomContainer>
+          </CardContainer>
+           <span>
+            &emsp;
+            &emsp;
+            &emsp;
+          </span>
+
+          <CardContainer
+            drag
+            dragElastic={0.16}
+            dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+            whileTap={{ cursor: "grabbing" }}
+          >
+            <BottomContainer>
+              <Link to={"/createvehiclereservation"} >
+                <DetailsContainer>
+                  <SpacedHorizontalContainer>
+                    <MediumText>Create a Vehicle Reservation</MediumText>
+                  </SpacedHorizontalContainer>
+                  <BuyButton>create</BuyButton>
+                </DetailsContainer>
+              </Link>
+        
+          </BottomContainer>
+          </CardContainer>
+        </CardWrapper>
+          <br></br>
+
+
+
+
       </div>
     );
   }

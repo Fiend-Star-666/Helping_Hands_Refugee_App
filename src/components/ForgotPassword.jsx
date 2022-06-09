@@ -51,7 +51,7 @@ function ForgotPassword(){
     }
     
     return(
-                    <div className= "card col-md-4 offset-md-3 my-5 " style={{backgroundColor:'skyblue', margin:'auto'}} >
+                    <div className= "card col-md-4 offset-md-3 my-5 " style={{backgroundColor:'lavenderblush', margin:'auto'}} >
                         <h1>Forgot Password</h1>
                         <label>Email Address:</label>
                         <div className='form-group'>

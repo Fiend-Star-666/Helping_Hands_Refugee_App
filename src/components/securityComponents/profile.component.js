@@ -1,6 +1,112 @@
 import React, { Component } from "react";
 import AuthService from "../../services/auth.service";
 import {Redirect, BrowserRouter as Router, Route, Switch,Link} from 'react-router-dom';
+import { motion, useMotionValue, useTransform } from "framer-motion";
+import styled from "styled-components";
+
+
+const CardWrapper = styled.div`
+  width: 100%;
+  perspective: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const CardContainer = styled(motion.div)`
+  width: 210px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 25px;
+  box-shadow: 0 2px 7px 1px rgba(31, 31, 31, 0.2);
+  background-color: #a6a6ed;
+  color: #fff;
+  position: relative;
+  cursor: grab;
+`;
+
+
+const BottomContainer = styled.div`
+  display: flex;
+  flex: 0.8;
+  padding: 0 1em;
+`;
+
+
+
+const DetailsContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5em 6px 0 6px;
+  line-height: 1.4;
+`;
+
+const MediumText = styled.span`
+  font-size: 18px;
+  color: #fff;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-align: center;
+`;
+
+const SmallText = styled.span`
+  font-size: 11px;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+`;
+
+const SpacedHorizontalContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const BuyButton = styled.button`
+  padding: 10px 16px;
+  background-color: #400080 ;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+  border: 3px solid transparent;
+  outline: none;
+  cursor: pointer;
+  transition: all 290ms ease-in-out;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: #cd00cd;
+    color: #fff;
+    border: 3px solid #fff;
+  }
+`;
+
+const NikeLogo = styled.div`
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: auto;
+    height: 13px;
+  }
+`;
+
+
+
+
+
+
+
+
+
 
 export default class Profile extends Component {
   constructor(props) {
@@ -22,6 +128,7 @@ export default class Profile extends Component {
 
   render() {
     
+    
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />
     }
@@ -33,122 +140,84 @@ export default class Profile extends Component {
         {(this.state.userReady) ?
         <div>
         <header className="jumbotron">
-          <h3>
-            <strong>{currentUser.email}</strong> Profile
+          <h3 style={{textAlign:'center'}}>
+            <strong >Profile</strong> 
           </h3>
         </header>
-        <p>
-          <strong>Token:</strong>{" "}
-          {currentUser.token.substring(0, 20)} ...{" "}
-          {currentUser.token.substr(currentUser.token.length - 20)}
-        </p>
-        <p>
-          <strong>Account Id:</strong>{" "}
-          {currentUser.accid}
-        </p>
-         <p>
+          
+        
+         <p >
           <strong>Email:</strong>{" "}
           {currentUser.email}
         </p>
 
-        <li>
+       <div className='container'>   
+        <CardWrapper>
+          <CardContainer
+            drag
+            dragElastic={0.16}
+            dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+            whileTap={{ cursor: "grabbing" }}
+          >
+        <BottomContainer>
         <Link to={"/account/view/pinfo/"+currentUser.accid} >
-                  View Personal Info
-        </Link>
-        </li>
-      
-        <li>
+            <DetailsContainer>
+              <SpacedHorizontalContainer>
+                <MediumText> Personal Info</MediumText>
+              </SpacedHorizontalContainer>
+              
+                <BuyButton>View</BuyButton>
+            </DetailsContainer>
+            </Link>
+        
+          </BottomContainer>
+          </CardContainer>
+          <span>
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+          </span>
+          <CardContainer
+            drag
+            dragElastic={0.16}
+            dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+            whileTap={{ cursor: "grabbing" }}
+          >
+        <BottomContainer>
         <Link to={"/vehiclereservation/account/view/"+currentUser.accid} >
-                  View Reservations
-        </Link>
-        </li>
-        <br></br>
-  
-  
-  
+            <DetailsContainer>
+              <SpacedHorizontalContainer>
+                <MediumText> Reservations</MediumText>
+              </SpacedHorizontalContainer>
+
+              <BuyButton>View</BuyButton>
+            </DetailsContainer>
+            </Link>
+        
+          </BottomContainer>
+          </CardContainer>
+        </CardWrapper>
+      </div>
         <strong>Authorities:</strong>
         <ul>
           {currentUser.roles &&
             currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
         </ul>
+        <p>
+          <strong>Account Id:</strong>{" "}
+          {currentUser.accid}
+        </p>
       </div>: null}
+
       
-      <strong>Actions:</strong>
-      <br></br>
-      <br></br>
+      
 <br></br>
 
-      <li>
-        <Link to={"/account/register/admin"} >
-                    Create a Receptionist Account
-        </Link>
-      </li>
-      <br></br>
-
-      <li>
-        <Link to={"/account/register/member"} >
-                    Create a Member Account
-        </Link>
-      </li>
-      <br></br>
-
-      <li>
-        <Link to={"/admin/carrentallocation/add"} >
-                    Create a Car Rental Location
-        </Link>
-      </li>
-      <br></br>
-  
-      <li>
-        <Link to={"/vehicle/add"} >
-                    Add a Vehicle
-        </Link>
-      </li>
-      <br></br>
+   
       
-      <li>
-        <Link to={"/createvehiclereservation"} >
-                    Create a vehicle Reservation
-        </Link>
-      </li>
-      <br></br>
-
-      
-      
-      <li>
-        <Link to={"/home/system"} >
-          View System
-        </Link>
-      </li>
-      
-      <li>
-        <Link to={"/carrentallocations/view"} >
-                    View all carRentalLocation
-        </Link>
-      </li>
-      <br></br>
-
-      <li>
-        <Link to={"/admin/account/view/all"} >
-                    View all Accounts
-        </Link>
-      </li>
-      <br></br>
-
-
-      <li>
-        <Link to={"/admin/vehiclereservations/view/all"} >
-                    View all Vehicle Reservation
-        </Link>
-      </li>
-      <br></br>
-
-      <li>
-        <Link to={"/vehicle/view"} >
-                    View all Vehicles
-        </Link>
-      </li>
-      <br></br>
             
       </div>
     );
@@ -159,29 +228,30 @@ export default class Profile extends Component {
 
 
 
-
-
-<div class="row"><div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0"><div class="icon-box wow fadeInUp animated" data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: fadeInUp;"><div class="icon"><i class="bx bxl-dribbble"></i></div><h4 class="title"><a href="">MAXIMUM CHOICE</a></h4><p class="description">We give you the widest number of travel options across thousands of routes.</p></div></div><div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0"><div class="icon-box wow fadeInUp animated" data-wow-delay="1.2s" style="visibility: visible; animation-delay: 1.2s; animation-name: fadeInUp;"><div class="icon"><i class="bx bx-file"></i></div><h4 class="title"><a href="">SUPERIOR CUSTOMER SERVICE</a></h4><p class="description">We put our experience and relationships to good use and are available to solve your travel issues.</p></div></div><div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0"><div class="icon-box wow fadeInUp animated" data-wow-delay="1.4s" style="visibility: visible; animation-delay: 1.4s; animation-name: fadeInUp;"><div class="icon"><i class="bx bx-tachometer"></i></div><h4 class="title"><a href="">LOWEST PRICES</a></h4><p class="description">We always give you the lowest price with the best partner offers.</p></div></div><div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0"><div class="icon-box wow fadeInUp animated" data-wow-delay="1.6s" style="visibility: visible; animation-delay: 1.6s; animation-name: fadeInUp;"><div class="icon"><i class="bx bx-world"></i></div><h4 class="title"><a href="">UNMATCHED BENEFITS</a></h4><p class="description">We take care of your travel beyond ticketing by providing you with innovative and unique benefits.</p></div></div></div>
-
-
-
-
-
-
-
-
-
-
-
-
 /*
-    "/carrentallocation/vehicle/view/:id" {ViewCRLocationForComponent}/>
-          
-    "/carrentallocation/:id/vehicles" {ListVehicleOfCRLocationComponents}/>
-                          
-    "/admin/vehiclereservation/carrentallocation/view/vehicle/:id" {ListVehicleReservationPerCRLocation}/>
-           
-    "/vehiclereservation/viewbill/:id" {ViewBillComponentVRID}/>
-                          
-    "/vehiclereservation/viewbillItem/:id/detailedview/" {ViewBillItem}/>                        
+
+        <CardWrapper>
+          <CardContainer
+            drag
+            dragElastic={0.16}
+            dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+            whileTap={{ cursor: "grabbing" }}
+          >
+          <BottomContainer>
+            <DetailsContainer>
+              <SmallText>NIKE</SmallText>
+              <SpacedHorizontalContainer>
+                <MediumText>AIR JORDAN 1 MID SE GC</MediumText>
+                <MediumText>¥856</MediumText>
+              </SpacedHorizontalContainer>
+
+              <SpacedHorizontalContainer>
+                <MediumText>YOUR NEXT SHOES</MediumText>
+                <BuyButton>BUY</BuyButton>
+              </SpacedHorizontalContainer>
+
+          </DetailsContainer>        
+        </BottomContainer>
+      </CardContainer>
+    </CardWrapper>
 */

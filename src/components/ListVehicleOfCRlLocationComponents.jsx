@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import VehicleService from '../services/VehicleService';
+import AuthService from '../services/auth.service';
 
 class ListVehicleOfCRlLocationComponents extends Component{
 
@@ -8,6 +9,8 @@ class ListVehicleOfCRlLocationComponents extends Component{
 
         this.state = {
             id: this.props.match.params.id,
+            showAdminBoard: false,
+
             vehicles: []
         }
         //this.addVehicle = this.addVehicle.bind(this);
@@ -30,6 +33,17 @@ class ListVehicleOfCRlLocationComponents extends Component{
     }
  
     componentDidMount(){
+
+        const user = AuthService.getCurrentUser();
+
+        if (user) {
+          this.setState({
+            currentUser: user,
+            showAdminBoard: user.roles.includes("ROLE_ADMIN"),
+          });
+        }
+
+
         VehicleService.getVehiclesByCRLocation(this.state.id).then((res) => 
         { 
             this.setState({ vehicles: res.data});
@@ -37,6 +51,7 @@ class ListVehicleOfCRlLocationComponents extends Component{
     }
 
     render() {
+        const { currentUser, showAdminBoard } = this.state;
         return (
           
               <div className="container">
@@ -85,7 +100,10 @@ class ListVehicleOfCRlLocationComponents extends Component{
                                         <td className='btn-group'>
                                             <button style={{marginLeft: "10px"}} onClick={ () => this.viewVehicle(vehicle.id)} className="btn btn-info btn-sm">View Vehicle</button>
                                             <button style={{marginLeft: "10px"}} onClick={ () => this.viewVehicleReservation(vehicle.id)} className="btn btn-info btn-sm">View Reservations</button>
-                                            <button style={{marginLeft: "10px"}} onClick={ () => this.deleteVehicle(vehicle.id)} className="btn btn-danger btn-sm">Delete </button>
+                                            
+                                            {showAdminBoard && (
+                                                <button style={{marginLeft: "10px"}} onClick={ () => this.deleteVehicle(vehicle.id)} className="btn btn-danger btn-sm">Delete </button>
+                                            )}
                                         </td>                                        
                                     </tr>
                                 )
