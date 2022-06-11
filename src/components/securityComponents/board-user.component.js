@@ -122,74 +122,7 @@ export default class BoardUser extends Component {
           <h3 style={{textAlign:'center'}}>User Board</h3>
         </header>
 
-        <CardWrapper>
-          <CardContainer
-            drag
-            dragElastic={0.16}
-            dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
-            whileTap={{ cursor: "grabbing" }}
-          >
-            <BottomContainer>
-              <Link to={"/carrentallocations/view"} >
-                <DetailsContainer>
-                  <SpacedHorizontalContainer>
-                    <MediumText>View all Rental Locations</MediumText>
-                  </SpacedHorizontalContainer>
-                  <BuyButton>view</BuyButton>
-                </DetailsContainer>
-              </Link>
-        
-          </BottomContainer>
-          </CardContainer>
-           <span>
-            &emsp;
-            &emsp;
-            &emsp;
-          </span>
-
-          <CardContainer
-            drag
-            dragElastic={0.16}
-            dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
-            whileTap={{ cursor: "grabbing" }}
-          >
-            <BottomContainer>
-              <Link to={"/vehicle/view"} >
-                <DetailsContainer>
-                  <SpacedHorizontalContainer>
-                    <MediumText>View all Vehicles</MediumText>
-                  </SpacedHorizontalContainer>
-                  <BuyButton>view</BuyButton>
-                </DetailsContainer>
-              </Link>
-        
-          </BottomContainer>
-          </CardContainer>
-           <span>
-            &emsp;
-            &emsp;
-            &emsp;
-          </span>
-
-          <CardContainer
-            drag
-            dragElastic={0.16}
-            dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
-            whileTap={{ cursor: "grabbing" }}
-          >
-            <BottomContainer>
-              <Link to={"/createvehiclereservation"} >
-                <DetailsContainer>
-                  <SpacedHorizontalContainer>
-                    <MediumText>Create a Vehicle Reservation</MediumText>
-                  </SpacedHorizontalContainer>
-                  <BuyButton>create</BuyButton>
-                </DetailsContainer>
-              </Link>
-        
-          </BottomContainer>
-          </CardContainer>
-        </CardWrapper>
+     
           <br></br>
 
 

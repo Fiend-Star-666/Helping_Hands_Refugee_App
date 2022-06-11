@@ -6,7 +6,7 @@ import {withRouter} from 'react-router-dom';
 import { parseISO, parseJSON } from 'date-fns';
 
 
-
+/*
 class UpdateVehicleLog extends Component {
 
     constructor(props){
@@ -120,3 +120,4 @@ class UpdateVehicleLog extends Component {
 }
 
 export default UpdateVehicleLog;
+*/

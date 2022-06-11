@@ -3,7 +3,7 @@ import VehicleService from '../services/VehicleService';
 import DatePicker from 'react-datepicker';  
    
 import "react-datepicker/dist/react-datepicker.css";  
-
+/*
 
 class CreateAccountMember extends Component {
     constructor(props){
@@ -227,3 +227,4 @@ class CreateAccountMember extends Component {
 
 export default CreateAccountMember;
 
+*/

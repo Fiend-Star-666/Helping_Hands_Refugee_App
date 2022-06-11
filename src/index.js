@@ -7,9 +7,7 @@ import *as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <body style={{backgroundColor: 'lavender'}}>
     <App />
-    </body>
   </React.StrictMode>,
   document.getElementById('root')
 );

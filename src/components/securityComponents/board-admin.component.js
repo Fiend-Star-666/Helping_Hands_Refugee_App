@@ -5,80 +5,6 @@ import EventBus from "../../common/EventBus";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import styled from "styled-components";
 
-const CardWrapper = styled.div`
-  width: 100%;
-  perspective: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const CardContainer = styled(motion.div)`
-  width: 210px;
-  height: 180px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 25px;
-  box-shadow: 0 2px 7px 1px rgba(31, 31, 31, 0.2);
-  background-color: #a6a6ed;
-  color: #fff;
-  position: relative;
-  cursor: grab;
-`;
-
-
-const BottomContainer = styled.div`
-  display: flex;
-  flex: 0.8;
-  padding: 0 1em;
-`;
-
-
-const DetailsContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 2.5em 6px 0 6px;
-  line-height: 1.4;
-`;
-
-const MediumText = styled.span`
-  font-size: 18px;
-  color: #fff;
-  font-weight: 800;
-  text-align: center;
-`;
-
-
-
-const SpacedHorizontalContainer = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const BuyButton = styled.button`
-  padding: 10px 16px;
-  background-color: #400080 ;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 16px;
-  font-weight: 700;
-  border: 3px solid transparent;
-  outline: none;
-  cursor: pointer;
-  transition: all 290ms ease-in-out;
-  border-radius: 8px;
-
-  &:hover {
-    background-color: #cd00cd;
-    color: #fff;
-    border: 3px solid #fff;
-  }
-`;
-
 
 export default class BoardAdmin extends Component {
   constructor(props) {
@@ -119,6 +45,32 @@ export default class BoardAdmin extends Component {
         <header className="jumbotron">
           <h3 style={{textAlign:'center'}}>Admin Board</h3>
         </header>
+
+
+
+
+      </div>
+
+      
+      
+    );
+  }
+}
+
+
+/*
+here's an example to use the custom style const written above
+
+
+/*
+const CardWrapper = styled.div`
+  width: 100%;
+  perspective: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 
 
           <CardWrapper>
@@ -189,156 +141,5 @@ export default class BoardAdmin extends Component {
           </BottomContainer>
           </CardContainer>
         </CardWrapper>
-          <br></br>
 
-
-
-
-
-          <CardWrapper>
-          <CardContainer
-            drag
-            dragElastic={0.16}
-            dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
-            whileTap={{ cursor: "grabbing" }}
-          >
-            <BottomContainer>
-              <Link to={"/vehicle/add"} >
-                <DetailsContainer>
-                  <SpacedHorizontalContainer>
-                    <MediumText>Add a Vehicle</MediumText>
-                  </SpacedHorizontalContainer>
-                  <BuyButton>Add</BuyButton>
-                </DetailsContainer>
-              </Link>
-        
-          </BottomContainer>
-          </CardContainer>
-           <span>
-            &emsp;
-            &emsp;
-            &emsp;
-          </span>
-
-          <CardContainer
-            drag
-            dragElastic={0.16}
-            dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
-            whileTap={{ cursor: "grabbing" }}
-          >
-            <BottomContainer>
-              <Link to={"/admin/account/view/all"} >
-                <DetailsContainer>
-                  <SpacedHorizontalContainer>
-                    <MediumText>View all Accounts</MediumText>
-                  </SpacedHorizontalContainer>
-                  <BuyButton>View</BuyButton>
-                </DetailsContainer>
-              </Link>
-        
-          </BottomContainer>
-          </CardContainer>
-           <span>
-            &emsp;
-            &emsp;
-            &emsp;
-          </span>
-
-          <CardContainer
-            drag
-            dragElastic={0.16}
-            dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
-            whileTap={{ cursor: "grabbing" }}
-          >
-            <BottomContainer>
-              <Link to={"/admin/vehiclereservations/view/all"} >
-                <DetailsContainer>
-                  <SpacedHorizontalContainer>
-                    <MediumText>View all Vehicle Reservations</MediumText>
-                  </SpacedHorizontalContainer>
-                  <BuyButton>View</BuyButton>
-                </DetailsContainer>
-              </Link>
-        
-          </BottomContainer>
-          </CardContainer>
-        </CardWrapper>
-        
-        <br></br>
-
-          <CardWrapper>
-          <CardContainer
-            drag
-            dragElastic={0.16}
-            dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
-            whileTap={{ cursor: "grabbing" }}
-          >
-            <BottomContainer>
-              <Link to={"/createvehiclereservation"} >
-                <DetailsContainer>
-                  <SpacedHorizontalContainer>
-                    <MediumText>Create a vehicle Reservation</MediumText>
-                  </SpacedHorizontalContainer>
-                  <BuyButton>Create</BuyButton>
-                </DetailsContainer>
-              </Link>
-        
-          </BottomContainer>
-          </CardContainer>
-           <span>
-            &emsp;
-            &emsp;
-            &emsp;
-          </span>
-
-          <CardContainer
-            drag
-            dragElastic={0.16}
-            dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
-            whileTap={{ cursor: "grabbing" }}
-          >
-            <BottomContainer>
-              <Link to={"/carrentallocations/view"} >
-                <DetailsContainer>
-                  <SpacedHorizontalContainer>
-                    <MediumText>View Rental Locations</MediumText>
-                  </SpacedHorizontalContainer>
-                  <BuyButton>View</BuyButton>
-                </DetailsContainer>
-              </Link>
-        
-          </BottomContainer>
-          </CardContainer>
-           <span>
-            &emsp;
-            &emsp;
-            &emsp;
-          </span>
-
-          <CardContainer
-            drag
-            dragElastic={0.16}
-            dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
-            whileTap={{ cursor: "grabbing" }}
-          >
-            <BottomContainer>
-              <Link to={"/vehicle/view"} >
-                <DetailsContainer>
-                  <SpacedHorizontalContainer>
-                    <MediumText>View all Vehicles</MediumText>
-                  </SpacedHorizontalContainer>
-                  <BuyButton>View</BuyButton>
-                </DetailsContainer>
-              </Link>
-        
-          </BottomContainer>
-          </CardContainer>
-        </CardWrapper>
-          <br></br>
-      </div>
-
-      
-      
-    );
-  }
-}
+*/
