@@ -49,6 +49,7 @@ export default class Login extends Component {
       AuthService.login(loginDetails).then(
         () => {
           this.props.history.push("/profile");
+          
           window.location.reload();
         }
       ).catch(function (error){

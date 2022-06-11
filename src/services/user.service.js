@@ -9,6 +9,7 @@ class UserService {
     return axios.get(API_URL + '/all');
   }
 
+  
   getUserBoard() {
     
     console.log("user service get user board");
@@ -17,8 +18,23 @@ class UserService {
   }
 
   getAdminBoard() {
+    console.log("user Admin get Admin board");
+    console.log(authHeader());
     return axios.get(API_URL + '/admin', { headers: authHeader() });
   }
+
+  getVolunteerBoard() {
+    console.log("user Volunteer get Volunteer board");
+    console.log(authHeader());
+    return axios.get(API_URL + '/volunteer', { headers: authHeader() });
+  }
+
+  getRefugeeBoard() {
+    console.log("Refugee service get Refugee board");
+    console.log(authHeader());
+    return axios.get(API_URL + '/refugee', { headers: authHeader() });
+  }
+
 }
 
 export default new UserService();
