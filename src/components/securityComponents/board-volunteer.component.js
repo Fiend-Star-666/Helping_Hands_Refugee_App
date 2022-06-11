@@ -43,7 +43,7 @@ export default class BoardVolunteer extends Component {
     return (
       <div className="card">
         <header className="jumbotron">
-          <h3 style={{textAlign:'center'}}>Volunteer Board</h3>
+        <h3>{this.state.content}</h3>
         </header>
 
 

@@ -89,7 +89,7 @@ class App extends Component{
       <div>
         <Router>
 
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
+        <nav className="navbar navbar-expand navbar-light bg-light">
           <Link to={"/home"} className="navbar-brand">
             Helping Hands
           </Link>
