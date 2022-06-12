@@ -3,9 +3,10 @@ import "../../css/form.css"
 import React, { Component, useEffect, useState } from 'react';
 import { useParams, useHistory, Prompt } from "react-router-dom";
 import AuthService from "../../services/auth.service";
+import RefugeeServices from "../../services/RefugeeServices";
 
 export default function TaskForm() {
-  
+  const history = useHistory();  
   const currentUser = AuthService.getCurrentUser();
 
   const [taskNature, setTaskNature] = useState('');
@@ -20,6 +21,24 @@ export default function TaskForm() {
   const [taskDeadline, setTaskDeadline] = useState(new Date());
 
   const [taskNumberOfPeople, setTaskNumberOfPeople] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const task = { 
+      refugeeId: currentUser.accid, taskNature: taskNature, taskSeverity: taskSeverity, taskType: taskType, taskSubject: taskSubject,
+      taskDescription: taskDescription, taskBoolDeadline: taskBoolDeadline, taskDeadline: taskDeadline, taskNumberOfPeople: taskNumberOfPeople,
+    }
+    console.log("task: "+JSON.stringify(task));
+    RefugeeServices.createTask(task)
+      .then(() => {
+        console.log("Task created");
+        history.push("/refugee");
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
 
 let deadlineBool;
 
@@ -37,20 +56,20 @@ if(taskBoolDeadline){
 
   return (
     <div className="postform-cont">
-      <Form>
+      <Form className="postform" onSubmit={handleSubmit}>
       <Form.Label>Nature</Form.Label>
         <Form.Select name="taskNature" value={taskNature} onChange={e => setTaskNature(e.target.value)}>
           <option value="null">Choose Nature</option>
-          <option value="virtual">Virtual</option>
-          <option value="in-person">In-Person</option>
+          <option value="Virtual">Virtual</option>
+          <option value="InPerson">In-Person</option>
         </Form.Select>
   
         <Form.Label>Severity</Form.Label>
         <Form.Select name="taskSeverity" value={taskSeverity} onChange={e => setTaskSeverity(e.target.value)}>
           <option value="null">Choose Severity</option>
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
+          <option value="Easy">Easy</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
         </Form.Select>
   
         <Form.Label>Type</Form.Label>
@@ -77,13 +96,12 @@ if(taskBoolDeadline){
         <Form.Label>Number of People</Form.Label>
         <Form.Control name="numberOfPeople" value={taskNumberOfPeople}
           onChange={e => setTaskNumberOfPeople(e.target.value)} />
-
+ 
         <br></br>
         {deadlineBool}
-
-        <Button variant="secondary" type="submit">Create Task</Button>
+ 
+        <Button variant="secondary" type="submit" onClick={handleSubmit}> Create Task</Button>
       </Form>
     </div>
   )
 }
-
