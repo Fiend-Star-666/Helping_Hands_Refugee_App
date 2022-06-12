@@ -147,9 +147,6 @@ export default class Home extends Component {
       <footer>
         <ul>
           <Link></Link> 
-          <Link></Link> 
-          <Link></Link> 
-          <Link></Link> 
         </ul>
       </footer>
       </div>

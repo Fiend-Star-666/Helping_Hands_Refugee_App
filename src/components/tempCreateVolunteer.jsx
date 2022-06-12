@@ -42,10 +42,11 @@ class TempCreateVolunteer extends React.Component {
 
     render(){
         return (
-            <div className="container">
+            <div className="card" style={{ width: "30rem", margin: "auto", marginTop: "2rem",marginBottom: '2rem' }}  >
+            <div className="container" style={{ width: "50rem", margin: "auto", marginTop: "2rem" }}>
                 <div className="row">
                     <div className="col-md-6">
-                        <h2>Create a New Volunteer</h2>
+                        <h2 >Volunteer Registration</h2>
                         <form onSubmit={this.saveVolunteer}>
                             <div className="form-group">
                                 <label>Email Id</label>
@@ -83,10 +84,11 @@ class TempCreateVolunteer extends React.Component {
                                 <label>Country</label>
                                 <input type="text" className="form-control" name="country" value={this.state.country} onChange={this.changeHandler} />
                             </div>
-                            <button type="submit" className="btn btn-primary">Submit</button>
+                            <button type="submit" className="button mb-2">Submit</button>
                         </form>
                     </div>
                 </div>
+            </div>
             </div>
         );
     }

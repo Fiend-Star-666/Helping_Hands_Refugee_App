@@ -60,8 +60,8 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="card col-md-6 offset-md-3 my-5">
-        <div >
+      <div className="card col-md-6 offset-md-3 my-5" style={{marginTop: "20px"}}>
+        <div className="card-body" style={{marginTop: "20px"}}>
 
 
           <Form
@@ -98,7 +98,7 @@ export default class Login extends Component {
 
             <div className="form-group">
               <button
-                className="btn btn-primary btn-block"
+                className="button mb-2 btn-block"
                 disabled={this.state.loading}
               >
                 {this.state.loading && (
@@ -123,9 +123,7 @@ export default class Login extends Component {
             />
           </Form>
         </div>
-        <Link to={"/forgotpassword"} >
-                Forgot Password
-            </Link>
+        <Link to={"/forgotpassword"} className="button mb-2" style={{ margin: "0 20px 0 20px"}}>Forgot Password?</Link> 
             
       </div>
     );

@@ -74,7 +74,7 @@ function ForgotPassword(){
                         <input type="password" placeholder="new password" name="confirmPassword" onChange={handleConfirmPasswordChange} value={confirmPassword} />
                         </div>
                         <div>
-                        <button className='btn-dark' onClick={saveNewPassword}>Submit</button>
+                        <button className='button mb-2' onClick={saveNewPassword}>Submit</button>
                         </div>
                         <br></br>                   
                      </div>

@@ -47,10 +47,11 @@ class TempCreateRefugee extends React.Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="card" style={{ width: "30rem", margin: "auto", marginTop: "2rem",marginBottom: '2rem' }}  >
+            <div className="container" style={{ width: "50rem", margin: "auto", marginTop: "2rem" }}>
                 <div className="row">
                     <div className="col-md-6">
-                        <h2>Create a New Refugee</h2>
+                        <h2>Refugee Registration:</h2>
                         <form onSubmit={this.saveRefugee}>
                             <div className="form-group">
                                 <label>Email Id</label>
@@ -100,12 +101,12 @@ class TempCreateRefugee extends React.Component {
                                 <label>Number of Children</label>
                                 <input type="text" className="form-control" name="numberOfChildren" value={this.state.numberOfChildren} onChange={this.changeHandler} />
                             </div>
-                            <button type="submit" className="btn btn-primary">Submit</button>
+                            <button type="submit" className="button mb-2">Submit</button>
                         </form>
                     </div>
                 </div>
             </div>
-
+</div>
         )
     }
 }

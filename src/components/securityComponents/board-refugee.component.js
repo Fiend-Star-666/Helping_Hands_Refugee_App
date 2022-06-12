@@ -41,22 +41,56 @@ export default class BoardRefugee extends Component {
 
   render() {
     return (
-      <div className="card">
-        <header className="jumbotron">
-        <h3>{this.state.content}</h3>
-        </header>
+      // <div className="card">
+      //   <header className="jumbotron">
+      //   <h3>{this.state.content}</h3>
+      //   </header>
+      //   <li>
+      //     <Link to={"/task/create"} >
+      //       Create a Task
+      //     </Link>
+      //   </li>
+      // </div>
+      <>
         <li>
-          <Link to={"/task/create"} >
-            Create a Task
+          <Link to={"/service/create"} >
+            Create a service
           </Link>
         </li>
 
+        <section id="volunteer-h">
+          <div className="volunteer-h-contents">
+            <div className="volunteer-h-inner">
+              <h1>Welcome, username</h1>
+              <p>Ready to take on a task? View them below</p>
+            </div>
+          </div>
+        </section>
 
-
-      </div>
-
-      
-      
+        <div id="dashboard-main">
+          <div className="side-nav">
+            <ul>
+              <li>Available</li>
+              <li>Accepted</li>
+              <li>Completed</li>
+            </ul>
+          </div>
+          <div className="tasks">
+            <h2 className="task-h">Available Tasks</h2>
+            <div className="task-content">
+              <div className="task-profile-pic">
+                <img />
+                <p>Username</p>
+              </div>
+              <div className="task-description">
+                <h3>Tasking title goes here</h3>
+                <h4>Location</h4>
+                <p>Description here</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
     );
   }
 }
