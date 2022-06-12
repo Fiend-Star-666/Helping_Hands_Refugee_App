@@ -9,6 +9,7 @@
   margin-right: auto;
   background-image: url('../icons/clouds.svg');
   background-size: cover;
+  font-weight: 800;
 }
 
 .volunteer-h-inner {
@@ -20,5 +21,5 @@
   height: 100%;
   background-color: rgb(111,128,234, 0.65);
   color: white;
-  font-weight: 6
+  font-weight: 600;
 }
