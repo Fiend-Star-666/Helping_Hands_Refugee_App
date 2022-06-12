@@ -7,7 +7,9 @@
 __________________________________________________________________________________________________________________________________________________________________
 ### Tech-Stack used: 
    for Front-end: Mainly React.JS along with CSS, HTML, Javascript was used
+   
    for Back-end:  Java, Spring Boot, Spring Data JPA, Spring Security was used. Hibernate was used as an ORM and Mysql was used as a Database
+   
    for Security: Both Authentication and the Authorisation was handled via JWT of Spring Security
 
 ### Here's our BackEnd Outline:
