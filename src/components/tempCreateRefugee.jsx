@@ -109,7 +109,7 @@ class TempCreateRefugee extends React.Component {
         //         </div>
         //     </div>
         // </div>
-        <div className="card" style={{ height: "45rem", width: "45rem", margin: "auto", marginTop: "2rem",marginBottom: '2rem' }} >
+        <div className="card" style={{ height: "47rem", width: "45rem", margin: "auto", marginTop: "2rem",marginBottom: '2rem' }} >
             <div className="container" style={{ width: "35rem", margin: "auto", marginTop: "2rem" }}>
                 <h1 className="signup-h mt-3">Create A Refugee Account</h1>
                 <Form id="refugee-form" onSubmit={this.saveRefugee}>
@@ -121,6 +121,8 @@ class TempCreateRefugee extends React.Component {
                     <Form.Control type="password" name="password" value={this.state.password} onChange={this.changeHandler}/>
                     <Form.Label className="ref-form-label">Phone Number</Form.Label>
                     <Form.Control name="phoneNumber" value={this.state.phoneNumber} onChange={this.changeHandler}/>
+                    <Form.Label className="ref-form-label">Address</Form.Label>
+                    <Form.Control name="streetAddress" value={this.state.streetAddress} onChange={this.changeHandler} />
 
                     <Row>
                         <Form.Group as={Col}>
@@ -148,6 +150,10 @@ class TempCreateRefugee extends React.Component {
                     </Row>
 
                     <Row>
+                        <Form.Group as={Col}>
+                            <Form.Label className="ref-form-label">Size of Group</Form.Label>
+                            <Form.Control name="sizeOfGroup" value={this.state.sizeOfGroup} onChange={this.changeHandler} />
+                        </Form.Group>
                         <Form.Group as={Col}>
                             <Form.Label className="ref-form-label">Adults</Form.Label>
                             <Form.Control name="numberOfAdults" value={this.state.numberOfAdults} onChange={this.changeHandler} />

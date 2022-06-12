@@ -58,6 +58,8 @@ class TempCreateVolunteer extends React.Component {
                 <Form.Control type="password" name="password" value={this.state.password} onChange={this.changeHandler}/>
                 <Form.Label className="ref-form-label">Phone Number</Form.Label>
                 <Form.Control name="phoneNumber" value={this.state.phoneNumber} onChange={this.changeHandler}/>
+                <Form.Label className="ref-form-label">Address</Form.Label>
+                    <Form.Control name="streetAddress" value={this.state.streetAddress} onChange={this.changeHandler} />
 
                 <Row>
                     <Form.Group as={Col}>
