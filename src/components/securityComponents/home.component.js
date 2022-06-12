@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 
 import UserService from "../../services/user.service";
@@ -17,9 +20,9 @@ import Motherhood from "../../icons/motherhood_illustration.svg";
 import ProfileInfoHand from "../../icons/profile_info_hand.svg";
 import UserDrawn from "../../icons/user_hand_drawn.svg";
 import World from "../../icons/world_illustration.svg";
+import Review from "../../icons/review.svg";
+
 // import Shape from "../../Shape.svg";
-
-
 
 
 
@@ -58,60 +61,85 @@ export default class Home extends Component {
       //   // </header>
       // </div>
       <div>
-      <section id="hero">
-        <div class="hero-content">
-          <h1 id="home-headline">Helping Hand</h1>
-          <p>We're on a world wide mission to help Ukraine refugees in need. Small or big, you can show your caring by lending a helping hand.</p>
-          <button class="button">Join Today</button>
-        </div>
-      </section>
+      <Container id="hero" className="text-center">
+        <Row>
+          <Col className="hero-content d-inline-block">
+            <h1 id="home-headline">Helping Hand</h1>
+            <p>We're on a world wide mission to help Ukraine refugees in need. Small or big, you can show your caring by lending a helping hand.</p>
+            <button className="button">Join Today</button>
+          </Col>
+          <Col>
+            <img className="d-inline-block" src={HandsImg} alt="hand shake" style={{width: "200px", height: "220px"}}></img>
+          </Col>
+        </Row>
+      </Container>
 
       <section id="features" className="background-shape spaceTop">
-        <div className="features-content text-center tl">
+        <div className="features-content text-center mb-4">
           <h1>Become a <span className="orange">Volunteer</span></h1>
-            <CardGroup>
-              <Card className="feature shadow-border text-center spacing">
-                <Card.Body>
-                <Card.Img src={Contact} alt="Contact" style={{maxWidth: "180px", height: "150px"}} />
-                <Card.Title className="orange ">Set up your account</Card.Title>
-                <Card.Text>Join Helping Hand today to help refugees. Set up your account to see refugees’ needs, accept new tasks, track your volunteer history, and receive special event notification.</Card.Text>
-                </Card.Body>
-              </Card>
-              <Card className="feature shadow-border text-center spacing">
-                <Card.Body>
-                <Card.Img src={World} alt="Contact" style={{maxWidth: "160px", height: "150px"}} />
-                <Card.Title className="orange ">Accept a task</Card.Title>
-                <Card.Text>Contribute to the community by accepting a task posted by refugees. Pick the one you are able to help, whether it is temorary accommodation, job opportunities, or clothes.</Card.Text>
-                </Card.Body>
-              </Card>
-              <Card className="feature shadow-border text-center spacing">
-                <Card.Body>
-                <Card.Img src={Join} alt="Contact" style={{maxWidth: "120px", height: "150px"}} />
-                <Card.Title className="orange ">Collect reward points</Card.Title>
-                <Card.Text>After completing each task, you will be awarded a certain amount of points. These points can be redeemed for volunteer hours or discounts.</Card.Text>
-                </Card.Body>
+          <CardGroup>
+            <Card className="feature shadow-border text-center spacing rounded mb-4">
+              <Card.Body>
+              <Card.Img src={Contact} alt="Contact" style={{maxWidth: "180px", height: "150px"}} />
+              <Card.Title className="orange ">Set up your account</Card.Title>
+              <Card.Text>Join Helping Hand today to help refugees. Set up your account to see refugees’ needs, accept new tasks, track your volunteer history, and receive special event notification.</Card.Text>
+              </Card.Body>
+            </Card>
+            <Card className="feature shadow-border text-center spacing rounded mb-4">
+              <Card.Body>
+              <Card.Img src={World} alt="Contact" style={{maxWidth: "160px", height: "150px"}} />
+              <Card.Title className="orange ">Accept a task</Card.Title>
+              <Card.Text>Contribute to the community by accepting a task posted by refugees. Pick the one you are able to help, whether it is temporary accommodation, job opportunities, or clothes.</Card.Text>
+              </Card.Body>
+            </Card>
+            <Card className="feature shadow-border text-center spacing rounded mb-4">
+              <Card.Body>
+              <Card.Img src={Join} alt="Contact" style={{maxWidth: "120px", height: "150px"}} />
+              <Card.Title className="orange ">Collect reward points</Card.Title>
+              <Card.Text>After completing each task, you will be awarded a certain amount of points. These points can be redeemed for volunteer hours or discounts.</Card.Text>
+              </Card.Body>
               </Card>
             </CardGroup>
-          <button className="button">Create Account</button>
+          <button className="button mb-4">Create Account</button>
         </div>
       </section>
 
       <section id="home-refugees">
-        <div className="home-refugees-content">
-          <h1>In need of <span className="orange">Assistance?</span></h1>
-          <div className="home-ref-card">
-            <h2>We have Volunteers who want to help you</h2>
-            <p>Our volunteers can help with providing temorary accommodation, job opportunities, child care, household items, or food.</p>
-          </div>
-          <div className="home-ref-card">
-            <h2>Start by expressing your needs on a ‘task card’</h2>
-            <p>Express your needs by posting a ‘task card.’ Our volunteers can then see the tasks and accept one of them. You’ll be notified when there is a volunteer wanting to help you.</p>
-          </div>
-          <div className="home-ref-card">
-            <h2>Provide precious feedback after receiving the help</h2>
-            <p>Rate the volunteers afterwards. Did they meet your expectations? Do you want to keep the connection in the future? You can also send a thank you card to your volunteers</p>
-          </div>
-        </div>
+        <Container className="home-refugees-content text-center">
+
+          <h1 className="mb-4">In need of <span className="orange">Assistance?</span></h1>
+
+          <Row className="mb-3">
+            <Col>
+              <img className="image-width" src={Motherhood} alt="Contact" />
+            </Col>
+            <Col className="home-ref-card light-purple-background" xs={12} md={5} >
+                <Card.Title>We have Volunteers who want to help you</Card.Title>
+                <Card.Text>Our volunteers can help with providing temorary accommodation, job opportunities, child care, household items, or food.</Card.Text>
+            </Col>
+          </Row>
+
+          <Row className="mb-3">
+            <Col className="home-ref-card light-purple-background" xs={12} md={5} >
+            <Card.Title>Start by expressing your needs on a ‘task card’</Card.Title>
+            <Card.Text>Express your needs by posting a ‘task card.’ Our volunteers can then see the tasks and accept one of them. You’ll be notified when there is a volunteer wanting to help you.</Card.Text>
+            </Col>
+            <Col xs={{ order: 'first' }} md={{ order: 'last' }}>
+              <img className="image-width" src={House} alt="Contact" />
+            </Col>
+          </Row>
+
+          <Row className="mb-3">
+            <Col>
+              <img className="image-width" src={Review} alt="Contact" />
+            </Col>
+            <Col className="home-ref-card light-purple-background" xs={12} md={5} >
+                <Card.Title>Provide precious feedback after receiving the help</Card.Title>
+                <Card.Text>Rate the volunteers afterwards. Did they meet your expectations? Do you want to keep the connection in the future? You can also send a thank you card to your volunteers</Card.Text>
+            </Col>
+          </Row>
+
+        </Container>
       </section>
       </div>
     );

@@ -12,6 +12,7 @@ import Register from './components/securityComponents/register.component';
 import EventBus from './common/EventBus';
 import error from './components/error';
 import Home from "./components/securityComponents/home.component.js";
+import TaskForm from "./components/Pages/TaskForm.js"
 // import NavBar from './components/Navbar.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -31,6 +32,8 @@ import World from "./icons/world_illustration.svg";
 //TEMPORARY
 import CreateRefugee from './components/tempCreateRefugee';
 import CreateVolunteer from './components/tempCreateVolunteer';
+import CreateService from './components/Pages/ServiceForm';
+import CreateTask from './components/Pages/TaskForm';
 
 class App extends Component{
   constructor(props) {
@@ -196,10 +199,12 @@ class App extends Component{
               <Route exact path="/volunteer" component={BoardVolunteer} />
               <Route exact path="/account/register/refugee" component={CreateRefugee} />
               <Route exact path="/account/register/volunteer" component={CreateVolunteer} />
+              <Route exact path="/create-task" component={TaskForm} />
               {
               //above are /api/test
               }
-
+              <Route exact path="/task/create" component={CreateTask} />
+              <Route exact path="/service/create" component={CreateService} />
               <Route  component={error} />                          
               <Route/>  
             </Switch>

@@ -11,7 +11,8 @@ export default class BoardVolunteer extends Component {
     super(props);
 
     this.state = {
-      content: ""
+      content: "",
+      
     };
   }
 
@@ -47,29 +48,37 @@ export default class BoardVolunteer extends Component {
       //   </header>
       // </div>
       <>
+      <li>
+          <Link to={"/service/create"} >
+            Create a service
+          </Link>
+        </li>
+
         <section id="volunteer-h">
-          <div class="volunteer-h-contents">
+          <div className="volunteer-h-contents">
+            <div className="volunteer-h-inner">
             <h1>Welcome, username</h1>
             <p>Ready to take on a task? View them below</p>
+            </div>
           </div>
         </section>
 
         <div id="dashboard-main">
-          <div class="side-nav">
+          <div className="side-nav">
             <ul>
               <li>Available</li>
               <li>Accepted</li>
               <li>Completed</li>
             </ul>
           </div>
-          <div class="tasks">
-            <h2 class="task-h">Available Tasks</h2>
-            <div class="task-content">
-              <div class="task-profile-pic">
+          <div className="tasks">
+            <h2 className="task-h">Available Tasks</h2>
+            <div className="task-content">
+              <div className="task-profile-pic">
                 <img />
                 <p>Username</p>
               </div>
-              <div class="task-description">
+              <div className="task-description">
                 <h3>Tasking title goes here</h3>
                 <h4>Location</h4>
                 <p>Description here</p>

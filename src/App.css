@@ -49,11 +49,12 @@
 
 .button {
   background-color: #ffb15a;
-  border: 1px solid #f8f9fa;
+  border: 1px solid #ffb15a;
   border-radius: 18px;
   color: white;
   cursor: pointer;
   font-family: arial,sans-serif;
+  font-weight: bolder;
   font-size: 14px;
   height: 36px;
   line-height: 27px;
@@ -101,10 +102,24 @@
   width: 1rem;
 }
 
-/* .background-shape {
+.image-width {
+  width: 200px;
+}
+
+.background-shape {
   background-color: #6F80EA;
-  position: absolute;
-} */
+}
+
+.light-purple-background {
+  background-image: url(./icons/lightpurple.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px;
+}
+
+
+
 
 /* .background-shape:before {
   content:"";
@@ -119,21 +134,25 @@
 
 
 
-/* @media (max-width: 800px) {
-
+/* @media (max-width: 400px) {
+  .light-purple-background {
+    background-image: url(./icons/lightpurple.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding: 20px;
+  }
 }  */
 
 
-.background-shape {
+/* .background-shape {
   justify-content: center;
   align-items: center;
   display: flex;
   height: 60vh; 
-  /* width: 100vw;  */
+  width: 100vw; 
   background-image: url(./icons/shape.svg);
   background-position: center;
   background-repeat: no-repeat;
-  /* background-size: cover; */
-  background-size: 500px 800px;
-  border: 2px solid red;
-}
+  background-size: cover;
+} */

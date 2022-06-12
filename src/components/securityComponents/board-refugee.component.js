@@ -45,7 +45,11 @@ export default class BoardRefugee extends Component {
         <header className="jumbotron">
         <h3>{this.state.content}</h3>
         </header>
-
+        <li>
+          <Link to={"/task/create"} >
+            Create a Task
+          </Link>
+        </li>
 
 
 
