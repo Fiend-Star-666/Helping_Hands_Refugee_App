@@ -3,13 +3,14 @@
 } */
 
 .volunteer-h-contents  {
-  width: 80%;
+  width: 90%;
   height: 35vh;
   margin-left: auto;
   margin-right: auto;
   background-image: url('../icons/clouds.svg');
+  opacity: 80%;
+  border-radius: 4px;
   background-size: cover;
-  font-weight: 800;
 }
 
 .volunteer-h-inner {
@@ -19,7 +20,24 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  background-color: rgb(111,128,234, 0.65);
+  background-color: rgb(111,128,234, 0.75);
   color: white;
-  font-weight: 600;
+  font-weight: bolder;
+  border-radius: 4px;
+}
+
+.dashboard-main {
+  float: right;
+}
+
+.side-nav {
+  float: left;
+  margin-left: 8%;
+  margin-top: 4%;
+}
+
+.tasks {
+  width: 60%;
+  margin: auto;
+  margin-top: 4%;
 }

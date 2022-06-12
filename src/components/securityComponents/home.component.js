@@ -70,7 +70,7 @@ export default class Home extends Component {
             <button className="button">Join Today</button>
           </Col>
           <Col>
-            <img className="d-inline-block" src={HandsImg} alt="hand shake" style={{width: "200px", height: "220px"}}></img>
+            <img className="d-inline-block" src={HandsImg} alt="hand shake" style={{width: '500px', height: 'auto'}}></img>
           </Col>
         </Row>
       </Container>

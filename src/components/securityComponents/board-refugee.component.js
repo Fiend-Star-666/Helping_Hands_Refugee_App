@@ -4,7 +4,11 @@ import UserService from "../../services/user.service";
 import EventBus from "../../common/EventBus";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import styled from "styled-components";
-
+import Accepted from "../../icons/accepted-icon.svg";
+import Available from "../../icons/available-icon.svg";
+import Completed from "../../icons/completed-icon.svg"; 
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
 
 export default class BoardRefugee extends Component {
   constructor(props) {
@@ -52,43 +56,64 @@ export default class BoardRefugee extends Component {
       //   </li>
       // </div>
       <>
-        <li>
-          <Link to={"/service/create"} >
-            Create a service
-          </Link>
-        </li>
 
         <section id="volunteer-h">
           <div className="volunteer-h-contents">
             <div className="volunteer-h-inner">
-              <h1>Welcome, username</h1>
-              <p>Ready to take on a task? View them below</p>
+              <h1 style={{textShadow: '1px 2px'}}>Welcome, Larysa</h1>
+              <p style={{textShadow: '0px 1px'}}>Look through our volunteers services!</p>
             </div>
           </div>
         </section>
+            
+
+            
+        <div className="side-nav">
+          <ul>
+            <br></br>
+            <br></br>
+            <img className="" src={Available} alt="Available" />
+            <li>Available</li>
+            <br></br>
+            <br></br>
+
+            <img className="" src={Accepted} alt="Accepted" />
+            <li>Accepted</li>
+            <br></br>
+            <br></br>
+
+            <img className="" src={Completed} alt="Completed" />
+            <li>Completed</li>
+          </ul>
+        </div>
 
         <div id="dashboard-main">
-          <div className="side-nav">
-            <ul>
-              <li>Available</li>
-              <li>Accepted</li>
-              <li>Completed</li>
-            </ul>
-          </div>
+        
           <div className="tasks">
-            <h2 className="task-h">Available Tasks</h2>
-            <div className="task-content">
-              <div className="task-profile-pic">
-                <img />
-                <p>Username</p>
-              </div>
+            <h2 className="task-h">Available Services</h2>
+            <Card className="task-content mb-4" style={{boxShadow: '5px 3px'}}>
               <div className="task-description">
-                <h3>Tasking title goes here</h3>
-                <h4>Location</h4>
-                <p>Description here</p>
+                <h3>Free place to stay in Belarus</h3>
+                <h4>Republic of Belarus</h4>
+                <p>Please reach out to us if you're in need. We would love to accomadate.</p>
               </div>
-            </div>
+            </Card>
+            <Card className="task-content mb-4" style={{boxShadow: '5px 3px'}}>
+              <div className="task-description">
+                <h3>Child Care in Chișinău</h3>
+                <h4>Chișinău, Moldova</h4>
+                <p>We are running a day care for all Ukrainian families. Give us a call for more info!</p>
+              </div>
+            </Card>
+            <Card className="task-content mb-4" style={{boxShadow: '5px 3px'}}>
+              <div className="task-description">
+                <h3>Groceries in Bucharest</h3>
+                <h4>Bucharest, Romania</h4>
+                <p>We have a large supply of household items and groceries for those in need. Come on by and grab what you need.</p>
+              </div>
+            </Card>
           </div>
+          <footer></footer>
         </div>
       </>
     );

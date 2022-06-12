@@ -184,3 +184,14 @@ footer {
   height: 16vh;
   margin-top: 90px;
 }
+
+.lavfooter {
+  background-color: #A8B4FF;
+  border-radius: 100% 0% 100% 0% / 79% 100% 0% 21%; 
+  border: solid 2px #A8B4FF;
+  height: 16vh;
+  min-height: 100%;
+  margin-top: 20%;
+}
+
+

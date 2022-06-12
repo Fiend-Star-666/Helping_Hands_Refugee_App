@@ -34,6 +34,14 @@ import CreateRefugee from './components/tempCreateRefugee';
 import CreateVolunteer from './components/tempCreateVolunteer';
 import CreateService from './components/Pages/ServiceForm';
 import CreateTask from './components/Pages/TaskForm';
+//trial
+import TrialVolunteer from './components/trial/Volunteer';
+import TrialRefugee from './components/trial/Refugee';
+
+//list
+import ListTasks from './components/Pages/ListTasks';
+
+
 
 class App extends Component{
   constructor(props) {
@@ -201,8 +209,13 @@ class App extends Component{
               {
               //above are /api/test
               }
+              <Route exact path="/trialVolunteer" component={TrialVolunteer} />
+              <Route exact path="/trialRefugee" component={TrialRefugee} />
+
               <Route exact path="/task/create" component={CreateTask} />
               <Route exact path="/service/create" component={CreateService} />
+
+              <Route exact path="/task/listall" component={ListTasks} />
               <Route  component={error} />                          
               <Route/>  
             </Switch>

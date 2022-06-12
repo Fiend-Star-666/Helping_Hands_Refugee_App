@@ -48,8 +48,16 @@ export default class Login extends Component {
     console.log(loginDetails);
       AuthService.login(loginDetails).then(
         () => {
+          const currentUser = AuthService.getCurrentUser();
+          if (currentUser.roles == "ROLE_ADMIN") {
           this.props.history.push("/profile");
-          
+          } 
+          if (currentUser.roles == "ROLE_REFUGEE") {
+            this.props.history.push("/refugee");
+          }
+          if (currentUser.roles == "ROLE_VOLUNTEER") {
+            this.props.history.push("/volunteer");
+          }
           window.location.reload();
         }
       ).catch(function (error){
@@ -60,9 +68,9 @@ export default class Login extends Component {
 
   render() {
     return (
+      <div>
       <div className="card col-md-6 offset-md-3 my-5" style={{marginTop: "20px"}}>
         <div className="card-body" style={{marginTop: "20px"}}>
-
 
           <Form
             onSubmit={this.handleLogin}
@@ -94,8 +102,6 @@ export default class Login extends Component {
               />
             </div>
 
-            
-
             <div className="form-group">
               <button
                 className="button mb-2 btn-block"
@@ -123,8 +129,10 @@ export default class Login extends Component {
             />
           </Form>
         </div>
-        <Link to={"/forgotpassword"} className="button mb-2" style={{ margin: "0 20px 0 20px"}}>Forgot Password?</Link> 
-            
+        <Link to={"/forgotpassword"} className="button mb-3" style={{ margin: "0 20px 0 20px"}}>Forgot Password?</Link> 
+        
+      </div>
+      <footer className="lavfooter"></footer>
       </div>
     );
   }
