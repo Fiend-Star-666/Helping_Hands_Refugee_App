@@ -1,0 +1,6 @@
+.volunteer-h-contents  {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 20vh;
+}
