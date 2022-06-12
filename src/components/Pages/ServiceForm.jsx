@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";  
 import { render } from '@testing-library/react';
 import AuthService from "../../services/auth.service";
+import VolunteerServices from "../../services/Volunteer.service";
 
 export default function ServiceForm() {
     const history = useHistory();
@@ -14,10 +15,8 @@ export default function ServiceForm() {
 
     const [serviceSubject, setServiceSubject] = useState('');
     const [serviceDescription, setServiceDescription] = useState('');
-    const [serviceDate, setServiceDate] = useState(new Date());
-    const [serviceLocation, setServiceLocation] = useState('');
+    const [serviceOther, setServiceOther] = useState('');
     
-
     const handleServiceTypeChange = (e) => {
         setServiceType(e.target.value);
     }
@@ -30,26 +29,22 @@ export default function ServiceForm() {
         setServiceDescription(e.target.value);
     }
 
-    const handleServiceDateChange = (date) => {
-        setServiceDate(date);
+    const handleServiceOtherChange = (e) => {
+        setServiceOther(e.target.value);
     }
 
-    const handleServiceLocationChange = (e) => {
-        setServiceLocation(e.target.value);
-    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const service = {
-            volunteerid: currentUser.id,
+            volunteerid: currentUser.accid,
             serviceType: serviceType,
             serviceSubject: serviceSubject,
             serviceDescription: serviceDescription,
-            serviceDate: serviceDate,
-            serviceLocation: serviceLocation,
+            serviceOther: serviceOther
         }
         console.log(service);
-        AuthService.createService(service).then(response => {
+        VolunteerServices.createService(service).then(response => {
             history.push('/volunteer');
         }
         ).catch(function (error) {
@@ -65,7 +60,8 @@ if(serviceType == 'Other'){
         <div>
             <div className='form-group'>
                 <label>Other Type</label>
-                <input type='text' placeholder="Other Type" className='form-control' name='otherType' value={serviceType} onChange={handleServiceTypeChange}/>
+                <input type='text' placeholder="Other Type" className='form-control' name='otherType' 
+                value={serviceOther} onChange={handleServiceOtherChange} />
                 </div>
         </div>
     );
@@ -105,19 +101,9 @@ if(serviceType == 'Other'){
 
                         <div className="form-group">
                             <label>Service Description</label>
-                            <textarea className="form-control" placeholder='Add Description here' value={serviceDescription} onChange={handleServiceDescriptionChange} rows="3" name='description'></textarea>
+                            <textarea className="form-control" placeholder='Add Description here' value={serviceDescription} onChange={handleServiceDescriptionChange} rows="5" name='description'></textarea>
                         </div>
 
-                        <div className="form-group">
-                            <label>Service Date</label>
-                            <DatePicker className='form-control'  selected={serviceDate} onChange={handleServiceDateChange}/>
-                        </div>
-
-                        <div className="form-group">
-                            <label>Service Location</label>
-                            <input type='text' placeholder="Service Location" value={serviceLocation} onChange={handleServiceLocationChange} className='form-control' name='serviceLocation' />
-                        </div>
-                        
                         <button type="submit" className="btn btn-primary">Submit</button>
                         
                     </form>                           

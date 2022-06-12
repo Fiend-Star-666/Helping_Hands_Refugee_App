@@ -50,10 +50,8 @@ class App extends Component{
 
   componentDidMount() {
     const user = AuthService.getCurrentUser();
-    console.log("outside user");
-
+ 
     if (user) {
-      console.log("inside user");
       this.setState({
         currentUser: user
       });
