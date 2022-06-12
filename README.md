@@ -6,8 +6,8 @@
    for Security: Both Authentication and the Authorisation was handled via JWT of Spring Security
 
 
-###  `The Back-end is in the folder named as Athena.`
-### `The Front-end is the repository itself except the folder named as Athena`
+###  `The Back-end is in the folder named as Back-end.`
+### `The Front-end is in the folder named as Front-end`
 
 Notes for the Back-end:
 Lombok external Library has to be installed
