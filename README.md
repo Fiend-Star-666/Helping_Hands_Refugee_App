@@ -28,7 +28,7 @@ ________________________________________________________________________________
 
 The crisis in Ukraine has forced about 8 million refugees to flee from their country and only a few million have returned while the rest are scattered in several countries. While they seek refuge, they are in urgent need of necessities. Helping Hands was created with the goal of alleviating those problems and to connect volunteers with refugees requiring assistance with specific tasks.
 
-### How it does it
+### How does it work?
 
 When creating an account, a user can specify if they need assistance i.e. a refugee or are offering their services i.e a Volunteer. A refugee will be able to create a new task that outlines their needs and any volunteer has the option to accept them. Once completed, the volunteer will receive points, which they can redeem for rewards.
 Volunteers can also create a service of multiple types which can be availed by the Refugees.
