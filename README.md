@@ -1,4 +1,4 @@
-### This is Our submission for the Athena Hack 2022. It was a Team Project made by:
+### It was a Team Project made by:
 1) Jenni       @jennytoc#9540
 2) Courtney    @courtskit#4408
 3) Gursimran   @gursimransingh4242#8318
