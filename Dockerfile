@@ -49,21 +49,16 @@ RUN echo "Contents of /app directory:" && ls -al /app
 FROM eclipse-temurin:17 as final
 USER root
 
-# Install MySQL and Supervisor
-RUN apt-get update && apt-get upgrade -y && DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server mysql-client supervisor
+# Install PostgreSQL and Supervisor
+RUN apt-get update && apt-get upgrade -y && DEBIAN_FRONTEND=noninteractive apt-get install -y postgresql postgresql-contrib supervisor
 
-# Configure MySQL
-RUN echo 'mysql-server mysql-server/root_password password 1234' | debconf-set-selections && \
-    echo 'mysql-server mysql-server/root_password_again password 1234' | debconf-set-selections && \
-    mkdir -p /var/run/mysqld && chown -R mysql:mysql /var/run/mysqld && \
-    echo "default_authentication_plugin = caching_sha2_password" >> /etc/mysql/mysql.conf.d/mysqld.cnf && \
-    service mysql start && \
-    while ! mysqladmin ping -uroot -p1234 --silent; do \
-        sleep 1; \
-        echo "Waiting for MySQL to be ready..."; \
-    done && \
-    mysql -uroot -p1234 -e "CREATE DATABASE refugeeApp;"
+# Configure PostgreSQL
+USER postgres
+RUN service postgresql start &&\
+    psql --command "CREATE USER root WITH SUPERUSER PASSWORD '1234';" &&\
+    createdb -O root refugeeApp
 
+USER root
 # Set the working directory in the container
 WORKDIR /app
 
