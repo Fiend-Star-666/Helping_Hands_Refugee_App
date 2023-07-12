@@ -56,7 +56,7 @@ RUN echo 'mysql-server mysql-server/root_password_again password 1234' | debconf
 
 RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get install -y mysql-server mysql-client supervisor
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server mysql-client supervisor
 
 RUN mkdir -p /var/run && mkdir -p /var/run/mysqld && chown -R mysql:mysql /var/run/mysqld
 
