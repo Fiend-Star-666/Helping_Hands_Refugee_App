@@ -1,5 +1,5 @@
 # Start with a base image containing Java runtime
-FROM adoptopenjdk:17-jdk-hotspot as maven-builder
+FROM adoptopenjdk:11-jdk-hotspot as maven-builder
 
 # Install Maven using apk
 RUN apk add --no-cache maven
@@ -35,7 +35,7 @@ RUN npm install
 RUN npm run build
 
 # Start with a base image containing Java runtime and MySQL
-FROM adoptopenjdk:17-jdk-hotspot
+FROM adoptopenjdk:11-jdk-hotspot
 
 # Install MySQL Server
 RUN apk add --no-cache mysql mysql-client && \
