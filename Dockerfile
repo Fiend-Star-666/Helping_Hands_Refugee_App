@@ -50,7 +50,7 @@ FROM eclipse-temurin:17 as final
 USER root
 
 # Install MySQL and Supervisor
-RUN apt-get update && apt-get upgrade -y && DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server mysql-client supervisor
+RUN apt-get update && apt-get upgrade -y && apt-get install -y mysql-server mysql-client supervisor
 
 # Configure MySQL
 RUN echo 'mysql-server mysql-server/root_password password 1234' | debconf-set-selections && \
