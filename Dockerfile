@@ -21,7 +21,7 @@ COPY ./Back-end/athena .
 COPY ./start-backend.sh ./start-backend.sh
 
 # Build the backend application
-RUN mvn package -DskipTests
+RUN mvn package
 
 RUN ls -al
 
@@ -64,6 +64,7 @@ WORKDIR /app
 
 # Copy the backend application to the container
 # If the Maven build happened in an earlier step in the same Dockerfile:
+COPY --from=builder /app/ /app/Back-end/
 COPY --from=builder /app/target/athena-0.0.1-SNAPSHOT.jar ./Back-end/athena/target/athena-0.0.1-SNAPSHOT.jar
 COPY --from=builder /app/start-backend.sh ./start-backend.sh
 
