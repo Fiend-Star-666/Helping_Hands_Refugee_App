@@ -52,7 +52,7 @@ RUN echo 'mysql-server mysql-server/root_password_again password 1234' | debconf
 RUN apt-get update && apt-get upgrade -y
 
 # Install MySQL Server 5.7 or 5.8
-RUN apt-get install -y mysql-server-5.7 mysql-client supervisor
+RUN apt-get install -y mysql-server-5.6 mysql-client supervisor
 # OR
 # RUN apt-get install -y mysql-server-5.8 mysql-client supervisor
 
