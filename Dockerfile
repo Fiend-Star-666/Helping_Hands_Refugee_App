@@ -55,8 +55,12 @@ FROM eclipse-temurin:17 as final
 RUN echo 'mysql-server mysql-server/root_password password 1234' | debconf-set-selections
 RUN echo 'mysql-server mysql-server/root_password_again password 1234' | debconf-set-selections
 
+RUN apt-get update && apt-get upgrade -y
+
+RUN apt-get install -y mysql-server-8.0 mysql-client supervisor
+
 # Install MySQL Server and Supervisor
-RUN apt-get update && apt-get install -y mysql-server mysql-client supervisor
+#RUN apt-get update && apt-get install -y mysql-server mysql-client supervisor
 
 # Setup MySQL
 RUN if [ ! -d /run/mysqld ]; then mkdir /run/mysqld; fi && \
