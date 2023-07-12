@@ -59,6 +59,7 @@ COPY --from=frontend-builder /app/ /app/Front-end
 
 # Make port 3001 available to the world outside this container
 EXPOSE 3001
+EXPOSE 9091
 
 # Copy Supervisor config file
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
