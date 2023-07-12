@@ -47,7 +47,7 @@ RUN echo 'mysql-server mysql-server/root_password_again password 1234' | debconf
 WORKDIR /app
 
 # Copy the backend application to the container
-COPY --from=builder /app/Back-end/ /app/Back-end/
+COPY --from=builder /app/ /app/Back-end/
 COPY --from=builder /app/target/athena-0.0.1-SNAPSHOT.jar ./Back-end/athena/target/athena-0.0.1-SNAPSHOT.jar
 COPY --from=builder /app/start-backend.sh ./start-backend.sh
 
