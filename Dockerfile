@@ -46,15 +46,18 @@ RUN echo "Contents of /app directory:" && ls -al /app
 # Start with a base image containing Java runtime
 FROM eclipse-temurin:17 as final
 
-RUN apt-get update && apt-get upgrade -y
+USER root
 
 # Configure debconf to make the MySQL installation non-interactive
+RUN echo 'mysql-server mysql-server/root_password password 1234' | debconf-set-selections
 RUN echo 'mysql-server mysql-server/root_password_again password 1234' | debconf-set-selections
+
+RUN apt-get update && apt-get upgrade -y
+
 RUN apt-get install -y mysql-server mysql-client supervisor
-RUN mkdir -p /var/run/mysqld && chown -R mysql:mysql /var/run/mysqld
 
 # Setup MySQL
-RUN mkdir -p /var/run/mysqld && \
+RUN if [ ! -d /var/run/mysqld ]; then mkdir -p /var/run/mysqld; fi && \
     chown -R mysql:mysql /var/run/mysqld && \
     echo "default_authentication_plugin = caching_sha2_password" >> /etc/mysql/mysql.conf.d/mysqld.cnf && \
     service mysql start && \
