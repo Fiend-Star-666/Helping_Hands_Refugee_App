@@ -52,10 +52,11 @@ RUN echo 'mysql-server mysql-server/root_password_again password 1234' | debconf
 
 RUN apt-get update && apt-get upgrade -y
 
+# Install MySQL Server
 RUN apt-get install -y mysql-server mysql-client supervisor
 
 # Setup MySQL
-RUN if [ ! -d /var/run/mysqld ]; then mkdir -p /var/run/mysqld; fi && \
+RUN mkdir -p /var/run/mysqld && \
     chown -R mysql:mysql /var/run/mysqld && \
     echo "default_authentication_plugin = caching_sha2_password" >> /etc/mysql/mysql.conf.d/mysqld.cnf && \
     service mysql start && \
