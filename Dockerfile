@@ -59,8 +59,6 @@ RUN if [ ! -d /run/mysqld ]; then mkdir /run/mysqld; fi && \
     chown -R mysql:mysql /run/mysqld && \
     echo "mysql:mysql:1234" | chpasswd
 
-
-
 # Set the working directory in the container
 WORKDIR /app
 
