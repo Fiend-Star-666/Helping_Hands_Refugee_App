@@ -3,7 +3,7 @@ FROM eclipse-temurin:17 as builder
 USER root
 
 # Install Maven
-RUN apt-get update && sudo apt-get install -y maven
+RUN apt-get update && apt-get install -y maven
 
 # Set the working directory in the builder
 WORKDIR /app
@@ -12,7 +12,7 @@ WORKDIR /app
 COPY ./Back-end/athena/pom.xml ./
 
 # Download the dependencies
-RUN sudo mvn dependency:go-offline -B
+RUN mvn dependency:go-offline -B
 
 # Copy the backend source code to the builder
 COPY ./Back-end/athena .
@@ -21,7 +21,7 @@ COPY ./Back-end/athena .
 COPY ./start-backend.sh ./start-backend.sh
 
 # Build the backend application
-RUN sudo mvn package
+RUN mvn package
 
 RUN ls -al
 
@@ -38,10 +38,10 @@ COPY ./Front-end .
 COPY ./Front-end/package*.json ./
 
 # Install app dependencies
-RUN sudo npm install
+RUN npm install
 
 # Build the frontend application
-RUN sudo npm run build
+RUN npm run build
 
 RUN echo "Contents of /app directory:" && ls -al /app
 
@@ -50,21 +50,21 @@ FROM eclipse-temurin:17 as final
 USER root
 
 # Configure debconf to make the MySQL installation non-interactive
-RUN echo 'mysql-server mysql-server/root_password password 1234' | sudo debconf-set-selections
-RUN echo 'mysql-server mysql-server/root_password_again password 1234' | sudo debconf-set-selections
+RUN echo 'mysql-server mysql-server/root_password password 1234' | debconf-set-selections
+RUN echo 'mysql-server mysql-server/root_password_again password 1234' | debconf-set-selections
 
 
-RUN apt-get update && sudo apt-get upgrade -y
+RUN apt-get update && apt-get upgrade -y
 
-RUN sudo apt-get install -y mysql-server mysql-client supervisor
+RUN apt-get install -y mysql-server mysql-client supervisor
 
-RUN sudo mkdir -p /var/run && sudo mkdir -p /var/run/mysqld && sudo chown -R mysql:mysql /var/run/mysqld
+RUN mkdir -p /var/run && mkdir -p /var/run/mysqld && chown -R mysql:mysql /var/run/mysqld
 
 # Setup MySQL
-RUN if [ ! -d /var/run/mysqld ]; then sudo mkdir -p /var/run/mysqld; fi && \
-    sudo chown -R mysql:mysql /var/run/mysqld && \
+RUN if [ ! -d /var/run/mysqld ]; then mkdir -p /var/run/mysqld; fi && \
+    chown -R mysql:mysql /var/run/mysqld && \
     echo "default_authentication_plugin = caching_sha2_password" >> /etc/mysql/mysql.conf.d/mysqld.cnf && \
-    sudo service mysql start && \
+    service mysql start && \
     while ! mysqladmin ping -uroot -p1234 --silent; do \
         sleep 1; \
         echo "Waiting for MySQL to be ready..."; \
@@ -79,7 +79,7 @@ COPY --from=builder /app/ /app/Back-end/
 COPY --from=builder /app/target/athena-0.0.1-SNAPSHOT.jar ./Back-end/athena/target/athena-0.0.1-SNAPSHOT.jar
 COPY --from=builder /app/start-backend.sh ./start-backend.sh
 
-RUN sudo chmod +x ./start-backend.sh
+RUN chmod +x ./start-backend.sh
 
 # Copy the frontend application to the container
 COPY --from=frontend-builder /app/ /app/Front-end
@@ -93,8 +93,8 @@ EXPOSE 9091
 # Copy Supervisor config file
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-RUN curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
-RUN sudo apt-get install -y nodejs
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN apt-get install -y nodejs
 
 RUN echo "Contents of /app directory:" && ls -al /app
 
