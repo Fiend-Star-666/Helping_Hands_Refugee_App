@@ -57,7 +57,11 @@ RUN apt-get update && apt-get install -y mysql-client mysql-server supervisor
 # Setup MySQL
 RUN if [ ! -d /run/mysqld ]; then mkdir /run/mysqld; fi && \
     chown -R mysql:mysql /run/mysqld && \
-    echo "mysql:mysql:1234" | chpasswd
+    echo "default_authentication_plugin = mysql_native_password" >> /etc/mysql/mysql.conf.d/mysqld.cnf && \
+    service mysql start && \
+    mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';" && \
+    mysql -u root -p1234 -e "CREATE DATABASE refugeeApp;"
+
 
 # Set the working directory in the container
 WORKDIR /app
