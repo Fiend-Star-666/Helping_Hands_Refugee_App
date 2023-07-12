@@ -58,3 +58,4 @@ EXPOSE 9091
 
 # Run the backend application
 CMD ["java","-Djava.security.egd=file:/dev/./urandom","-jar","./backend.jar"]
+
