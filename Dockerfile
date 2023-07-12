@@ -51,16 +51,23 @@ RUN echo "Contents of /app directory:" && ls -al /app
 # Start with a base image containing Java runtime
 FROM eclipse-temurin:17 as final
 
-# Install MySQL client, MySQL Server and Supervisor
-RUN apt-get update && apt-get install -y mysql-client mysql-server supervisor
+# Configure debconf to make the MySQL installation non-interactive
+RUN echo 'mysql-server mysql-server/root_password password 1234' | debconf-set-selections
+RUN echo 'mysql-server mysql-server/root_password_again password 1234' | debconf-set-selections
+
+# Install MySQL Server and Supervisor
+RUN apt-get update && apt-get install -y mysql-server mysql-client supervisor
 
 # Setup MySQL
 RUN if [ ! -d /run/mysqld ]; then mkdir /run/mysqld; fi && \
     chown -R mysql:mysql /run/mysqld && \
     echo "default_authentication_plugin = mysql_native_password" >> /etc/mysql/mysql.conf.d/mysqld.cnf && \
     service mysql start && \
-    mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';" && \
-    mysql -u root -p1234 -e "CREATE DATABASE refugeeApp;"
+    while ! mysqladmin ping -uroot -p1234 --silent; do \
+        sleep 1; \
+        echo "Waiting for MySQL to be ready..."; \
+    done && \
+    mysql -uroot -p1234 -e "CREATE DATABASE refugeeApp;"
 
 
 # Set the working directory in the container
@@ -83,6 +90,7 @@ RUN echo "Contents of /app directory:" && ls -al /app
 
 # Make port 3001 available to the world outside this container
 EXPOSE  3001
+EXPOSE 9091
 
 # Copy Supervisor config file
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
