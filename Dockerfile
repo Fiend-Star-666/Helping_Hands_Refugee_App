@@ -1,8 +1,8 @@
-# Start with a base image containing Java runtime
-FROM adoptopenjdk:11-jdk-hotspot as maven-builder
+# Start with a base image containing Java runtime and Maven
+FROM adoptopenjdk:11-jdk-hotspot as builder
 
-# Install Maven using apk
-RUN apk add --no-cache maven
+# Install Maven
+RUN apt-get update && apt-get install -y maven
 
 # Set the working directory in the builder
 WORKDIR /app
@@ -34,11 +34,14 @@ RUN npm install
 # Build the frontend application
 RUN npm run build
 
-# Start with a base image containing Java runtime and MySQL
-FROM adoptopenjdk:11-jdk-hotspot
+# Start with a base image containing Java runtime
+FROM adoptopenjdk:11-jdk-hotspot as final
+
+# Install MySQL client
+RUN apt-get update && apt-get install -y mysql-client
 
 # Install MySQL Server
-RUN apk add --no-cache mysql mysql-client && \
+RUN apt-get install -y mysql-server && \
     mkdir /run/mysqld && \
     chown -R mysql:mysql /run/mysqld && \
     mysql_install_db --user=mysql --ldata=/var/lib/mysql
@@ -47,7 +50,7 @@ RUN apk add --no-cache mysql mysql-client && \
 WORKDIR /app
 
 # Copy the backend application to the container
-COPY --from=maven-builder /app/target/athena-0.0.1-SNAPSHOT.jar ./Back-end.jar
+COPY --from=builder /app/target/athena-0.0.1-SNAPSHOT.jar ./Back-end.jar
 
 # Copy the frontend application to the container
 COPY --from=frontend-builder /app/build ./Front-end
