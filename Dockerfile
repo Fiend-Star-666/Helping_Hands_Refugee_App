@@ -63,7 +63,8 @@ EXPOSE 3001
 # Copy Supervisor config file
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Install Node.js
+# Install curl and Node.js
+RUN apt-get update && apt-get install -y curl
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 
