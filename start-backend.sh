@@ -1,16 +1,16 @@
 #!/bin/sh
 
-# Function to check PostgreSQL availability
-wait_for_postgres() {
-    echo "Checking PostgreSQL connection..."
-    while ! pg_isready -h localhost -p 5432 -U root -d refugeeApp >/dev/null 2>&1; do
+# Function to check MySQL availability
+wait_for_mysql() {
+    echo "Checking MySQL connection..."
+    while ! mysqladmin ping -h localhost -P 3306 -u root -p1234 --silent; do
         sleep 3
     done
-    echo "PostgreSQL is up and running!"
+    echo "MySQL is up and running!"
 }
 
-# Check PostgreSQL availability
-wait_for_postgres
+# Check MySQL availability
+wait_for_mysql
 
 # Start the Spring Boot application
 java -Djava.security.egd=file:/dev/./urandom -jar ./Back-end/athena/target/athena-0.0.1-SNAPSHOT.jar
