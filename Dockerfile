@@ -50,13 +50,8 @@ RUN apt-get update && apt-get upgrade -y
 
 # Configure debconf to make the MySQL installation non-interactive
 RUN echo 'mysql-server mysql-server/root_password_again password 1234' | debconf-set-selections
-
-
-RUN mkdir -p /var/run/mysqld && chown -R mysql:mysql /var/run/mysqld
-
-
 RUN apt-get install -y mysql-server mysql-client supervisor
-
+RUN mkdir -p /var/run/mysqld && chown -R mysql:mysql /var/run/mysqld
 
 # Setup MySQL
 RUN mkdir -p /var/run/mysqld && \
