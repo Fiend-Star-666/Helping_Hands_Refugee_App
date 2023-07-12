@@ -46,15 +46,17 @@ RUN echo "Contents of /app directory:" && ls -al /app
 # Start with a base image containing Java runtime
 FROM eclipse-temurin:17 as final
 
+RUN mkdir -p /var/run/mysqld && chown -R mysql:mysql /var/run/mysqld
 
 
 RUN apt-get update && apt-get upgrade -y
 
-# Install MySQL Server 5.7 or 5.8
-RUN apt-get install -y mysql-server-8.0 mysql-client supervisor
-
 # Configure debconf to make the MySQL installation non-interactive
 RUN echo 'mysql-server mysql-server/root_password_again password 1234' | debconf-set-selections
+
+
+RUN apt-get install -y mysql-server mysql-client supervisor
+
 
 # Setup MySQL
 RUN mkdir -p /var/run/mysqld && \
