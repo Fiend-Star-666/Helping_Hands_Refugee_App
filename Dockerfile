@@ -1,5 +1,8 @@
-# Start with a base image containing Java runtime and Maven
-FROM maven:3.8.4-openjdk-17 as builder
+# Start with a base image containing Java runtime
+FROM openjdk:17-jdk as maven-builder
+
+# Install Maven
+RUN apt-get update && apt-get install -y maven
 
 # Set the working directory in the builder
 WORKDIR /app
@@ -17,7 +20,7 @@ COPY ./Back-end/athena .
 RUN mvn package
 
 # Start with a base image containing Node.js runtime
-FROM node:14 as Front-end
+FROM node:14 as frontend-builder
 
 # Set the working directory in the frontend
 WORKDIR /app
@@ -44,10 +47,10 @@ RUN apk add --no-cache mysql mysql-client && \
 WORKDIR /app
 
 # Copy the backend application to the container
-COPY --from=builder /app/target/athena-0.0.1-SNAPSHOT.jar ./Back-end.jar
+COPY --from=maven-builder /app/target/athena-0.0.1-SNAPSHOT.jar ./Back-end.jar
 
 # Copy the frontend application to the container
-COPY --from=Front-end /app/build ./Front-end
+COPY --from=frontend-builder /app/build ./Front-end
 
 # Make port 9091 available to the world outside this container
 EXPOSE 9091
