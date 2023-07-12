@@ -1,5 +1,6 @@
 # Start with a base image containing Java runtime and Maven
 FROM eclipse-temurin:17 as builder
+USER root
 
 # Install Maven
 RUN apt-get update && apt-get install -y maven
@@ -26,6 +27,7 @@ RUN ls -al
 
 # Start with a base image containing Node.js runtime
 FROM node:14 as frontend-builder
+USER root
 
 # Set the working directory in the frontend
 WORKDIR /app
@@ -45,12 +47,13 @@ RUN echo "Contents of /app directory:" && ls -al /app
 
 # Start with a base image containing Java runtime
 FROM eclipse-temurin:17 as final
-
 USER root
 
 # Configure debconf to make the MySQL installation non-interactive
 RUN echo 'mysql-server mysql-server/root_password password 1234' | debconf-set-selections
 RUN echo 'mysql-server mysql-server/root_password_again password 1234' | debconf-set-selections
+
+RUN mkdir -p /var/run && mkdir -p /var/run/mysqld && chown -R mysql:mysql /var/run/mysqld
 
 RUN apt-get update && apt-get upgrade -y
 
