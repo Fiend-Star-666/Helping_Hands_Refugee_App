@@ -32,7 +32,7 @@ import com.athena.repository.VolunteerRepository;
 
 @RestController
 @RequestMapping("/api/v1")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3001")
 public class TaskController {
 	
 	@Autowired 

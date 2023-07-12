@@ -24,7 +24,7 @@ import com.athena.security.payload.JwtResponse;
 
 
 
-@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:3001", maxAge = 3600)
 @RestController
 @RequestMapping("/api/v1")
 public class AuthController {
