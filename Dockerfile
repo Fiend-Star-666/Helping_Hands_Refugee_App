@@ -81,8 +81,8 @@ COPY --from=frontend-builder /app/ /app/Front-end
 RUN echo "Contents of /app directory:" && ls -al /app
 
 
-# Make port 9091 and 3000 available to the world outside this container
-EXPOSE 9091 3001
+# Make port 3001 available to the world outside this container
+EXPOSE  3001
 
 # Copy Supervisor config file
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
