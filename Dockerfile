@@ -47,13 +47,14 @@ RUN echo "Contents of /app directory:" && ls -al /app
 FROM eclipse-temurin:17 as final
 
 # Configure debconf to make the MySQL installation non-interactive
-RUN echo 'mysql-server mysql-server/root_password password 1234' | debconf-set-selections
 RUN echo 'mysql-server mysql-server/root_password_again password 1234' | debconf-set-selections
 
 RUN apt-get update && apt-get upgrade -y
 
-# Install MySQL Server
-RUN apt-get install -y mysql-server mysql-client supervisor
+# Install MySQL Server 5.7 or 5.8
+RUN apt-get install -y mysql-server-5.7 mysql-client supervisor
+# OR
+# RUN apt-get install -y mysql-server-5.8 mysql-client supervisor
 
 # Setup MySQL
 RUN mkdir -p /var/run/mysqld && \
