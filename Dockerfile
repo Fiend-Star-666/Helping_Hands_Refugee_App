@@ -57,13 +57,13 @@ RUN mkdir -p /var/run/mysqld
 
 # Update package lists and install curl, supervisor, Node.js, Maven, OpenJDK 17, and MySQL
 RUN apt-get update && apt-get install -y curl supervisor nodejs maven openjdk-17-jdk openjdk-17-jre mysql-server mysql-client
-
+EXPOSE 3001
 # Root user environment and permissions
-USER root
+#USER root
 ENV MYSQL_ROOT_PASSWORD=1234
 
 # Make sure MySQL is stopped before changing ownership
-RUN service mysql stop
+#RUN service mysql stop
 
 # Change ownership of MySQL directories
 #RUN chown -R mysql:mysql /var/run/mysqld
