@@ -76,7 +76,6 @@ RUN apt-get install -y nodejs
 RUN apt-get install -y maven
 # Add adoptopenjdk repo and install OpenJDK 17
 RUN apt-get install -y openjdk-17-jdk-headless openjdk-17-jre-headless
-    && apt-get clean
 
 # Root user environment and permissions
 USER root
