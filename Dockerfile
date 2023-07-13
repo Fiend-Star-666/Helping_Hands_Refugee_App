@@ -75,12 +75,7 @@ RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 
 # Add adoptopenjdk repo and install OpenJDK 17
-RUN apt-get install -y wget apt-transport-https gnupg \
- && wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add - \
- && echo "deb https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ buster main" | tee /etc/apt/sources.list.d/adoptopenjdk.list \
- && apt-get update \
- && apt-get install -y adoptopenjdk-17-hotspot \
- && apt-get clean
+RUN apt install openjdk-17-jdk openjdk-17-jre && apt-get clean
 
 # Root user environment and permissions
 USER root
