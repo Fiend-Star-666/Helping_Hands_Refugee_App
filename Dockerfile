@@ -39,6 +39,8 @@ RUN npm run build
 # Start with a base image containing Java runtime and MySQL
 FROM mysql:8.0.26
 
+RUN mkdir -p /var/run/mysqld && chown -R mysql:mysql /var/run/mysqld
+
 # Configure debconf to make the MySQL installation non-interactive
 RUN echo 'mysql-server mysql-server/root_password password 1234' | debconf-set-selections
 RUN echo 'mysql-server mysql-server/root_password_again password 1234' | debconf-set-selections
@@ -80,6 +82,8 @@ USER root
 ENV MYSQL_ROOT_PASSWORD=1234
 
 RUN ls -al
+
+RUN mkdir -p /var/run/mysqld && chown -R mysql:mysql /var/run/mysqld
 
 # Inline script to wait for MySQL service and execute SQL query
 RUN (/usr/local/bin/docker-entrypoint.sh mysqld > /dev/null &) \
