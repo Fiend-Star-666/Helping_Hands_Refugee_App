@@ -78,18 +78,16 @@ USER root
 
 ENV MYSQL_ROOT_PASSWORD=1234
 
-# Copy SQL file
-COPY ./create_databases.sql /docker-entrypoint-initdb.d/create_databases.sql
-
+RUN ls -al
 
 # Inline script to wait for MySQL service and execute SQL query
 RUN (/usr/local/bin/docker-entrypoint.sh mysqld > /dev/null &) \
     && until mysqladmin ping -h "localhost" --silent; do \
       echo "Waiting for MySQL to start..."; \
-      sleep 30; \
+      sleep 4; \
     done \
     && echo "MySQL is up - executing command" \
-    && mysql -uroot -p1234 -e "source /docker-entrypoint-initdb.d/create_databases.sql"
+    && mysql -uroot -p1234 -e "CREATE DATABASE IF NOT EXISTS refugeeApp;"
 
 # Run the applications using Supervisor
 CMD ["/usr/bin/supervisord"]
