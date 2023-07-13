@@ -36,17 +36,13 @@ RUN npm install
 # Build the frontend application
 RUN npm run build
 
-# Start with a base image containing Java runtime and MySQL
+# We start from the MySQL 8.0.26 image
 FROM mysql:8.0.26
 
-
+# Make directories and change ownership
 RUN mkdir -p /var/run/mysqld && chown -R mysql:mysql /var/run/mysqld
 
-# Configure debconf to make the MySQL installation non-interactive
-RUN echo 'mysql-server mysql-server/root_password password 1234' | debconf-set-selections
-RUN echo 'mysql-server mysql-server/root_password_again password 1234' | debconf-set-selections
-
-# Set the working directory in the container
+# Set the working directory
 WORKDIR /app
 
 # Copy the backend application to the container
@@ -60,35 +56,39 @@ RUN chmod +x ./start-backend.sh
 # Copy the frontend application to the container
 COPY --from=frontend-builder /app/ /app/Front-end
 
-# Make port 3001 available to the world outside this container
+# Make ports available to the world outside this container
 EXPOSE 3001
 EXPOSE 9091
 
-# Copy Supervisor config file
+# Copy Supervisor config files
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY supervisord.conf /app
 COPY supervisord.conf /usr/bin/supervisord.conf
 
-
-
-# Run the following commands to add the GPG key for the MySQL repository
+# Add the GPG key for the MySQL repository
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 467B942D3A79BD29
 RUN echo "deb http://repo.mysql.com/apt/debian/ buster mysql-8.0" > /etc/apt/sources.list.d/mysql.list
 
-# Update package lists and install curl
+# Update package lists and install curl, supervisor and Node.js
 RUN apt-get update && apt-get install -y curl supervisor
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 
+# Add adoptopenjdk repo and install OpenJDK 17
+RUN apt-get install -y wget apt-transport-https gnupg \
+ && wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add - \
+ && echo "deb https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ buster main" | tee /etc/apt/sources.list.d/adoptopenjdk.list \
+ && apt-get update \
+ && apt-get install -y adoptopenjdk-17-hotspot \
+ && apt-get clean
+
+# Root user environment and permissions
 USER root
-
 ENV MYSQL_ROOT_PASSWORD=1234
-
 RUN ls -al
-
 RUN mkdir -p /var/run/mysqld && chown -R mysql:mysql /var/run/mysqld
 
-# Inline script to wait for MySQL service and execute SQL query
+# MySQL setup
 RUN (/usr/local/bin/docker-entrypoint.sh mysqld > /dev/null &) \
     && until mysqladmin ping -h "localhost" --silent; do \
       echo "Waiting for MySQL to start..."; \
@@ -97,6 +97,7 @@ RUN (/usr/local/bin/docker-entrypoint.sh mysqld > /dev/null &) \
     && echo "MySQL is up - executing command" \
     && mysql -uroot -p1234 -e "CREATE DATABASE IF NOT EXISTS refugeeApp;"
 
+# Set working directories and list files
 WORKDIR /usr/local/bin
 RUN ls -al
 WORKDIR /app
@@ -104,3 +105,4 @@ RUN ls -al
 
 # Run the applications using Supervisor
 CMD ["/usr/bin/supervisord"]
+
