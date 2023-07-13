@@ -36,7 +36,7 @@ RUN npm install
 # Build the frontend application
 RUN npm run build
 
-FROM debian:latest
+FROM ubuntu:latest
 
 # Install apt-utils and GPG tools
 RUN apt-get update && apt-get install -y apt-utils gnupg gnupg2 gnupg1
