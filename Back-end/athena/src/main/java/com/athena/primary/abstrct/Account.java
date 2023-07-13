@@ -15,6 +15,7 @@ import lombok.Setter;
 @Setter
 @Entity
 public abstract class Account {
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;

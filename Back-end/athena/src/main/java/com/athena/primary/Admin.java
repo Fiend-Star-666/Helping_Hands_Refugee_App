@@ -18,6 +18,7 @@ import lombok.Setter;
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Admin extends Account{
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)  
 	private int id;
