@@ -13,9 +13,9 @@ wait_for_mysql() {
 wait_for_mysql
 
 # Import the SQL file
-echo "Running SQL script..."
-mysql -h localhost -P 3306 -u root -p1234 -e "source /app/create_databases.sql"
-echo "SQL script executed successfully!"
+#echo "Running SQL script..."
+#mysql -h localhost -P 3306 -u root -p1234 -e "source /app/create_databases.sql"
+#echo "SQL script executed successfully!"
 
 
 # Start the Spring Boot application
