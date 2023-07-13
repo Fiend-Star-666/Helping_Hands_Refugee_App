@@ -74,6 +74,13 @@ RUN apt-get update && apt-get install -y curl
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 
+# Inline script to wait for MySQL service and execute SQL query
+RUN until mysqladmin ping -h "mysql" --silent; do \
+      echo "MySQL is unavailable - sleeping"; \
+      sleep 3; \
+    done \
+    && echo "MySQL is up - executing command" 
+
 # Copy SQL script to create databases
 RUN mysql -uroot -p1234 -e "CREATE DATABASE refugeeApp;"
 
