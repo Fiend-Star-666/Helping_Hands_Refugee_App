@@ -75,7 +75,8 @@ RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 RUN apt-get install -y maven
 # Add adoptopenjdk repo and install OpenJDK 17
-RUN apt-get install -y openjdk-17-jdk openjdk-17-jre && apt-get clean
+RUN apt-get install -y openjdk-17-jdk-headless openjdk-17-jre-headless
+    && apt-get clean
 
 # Root user environment and permissions
 USER root
