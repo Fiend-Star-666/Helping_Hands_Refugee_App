@@ -69,23 +69,16 @@ COPY supervisord.conf /usr/bin/supervisord.conf
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 467B942D3A79BD29
 RUN echo "deb http://repo.mysql.com/apt/debian/ buster mysql-8.0" > /etc/apt/sources.list.d/mysql.list
 
-# Update package lists and install curl, supervisor and Node.js
+# Update package lists and install curl, supervisor, Node.js, Maven, OpenJDK 17, and MySQL
 RUN apt-get update && apt-get install -y curl supervisor
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 RUN apt-get install -y maven
-# Add adoptopenjdk repo and install OpenJDK 17
-RUN apt-get install -y openjdk-17-jdk-headless openjdk-17-jre-headless
+RUN apt-get install -y openjdk-17-jdk openjdk-17-jre
+RUN apt-get install -y mysql-server mysql-client
 
-# Root user environment and permissions
-USER root
-ENV MYSQL_ROOT_PASSWORD=1234
-RUN ls -al
-RUN mkdir -p /var/run/mysqld && chown -R mysql:mysql /var/run/mysqld
-
-# MySQL setup
-RUN (/usr/local/bin/docker-entrypoint.sh mysqld > /dev/null &) \
-    && until mysqladmin ping -h "localhost" --silent; do \
+RUN service mysql start && \
+    until mysqladmin ping -h "localhost" --silent; do \
       echo "Waiting for MySQL to start..."; \
       sleep 4; \
     done \
@@ -100,4 +93,3 @@ RUN ls -al
 
 # Run the applications using Supervisor
 CMD ["/usr/bin/supervisord"]
-
