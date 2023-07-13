@@ -102,7 +102,5 @@ RUN ls -al
 WORKDIR /app
 RUN ls -al
 
-RUN apt-get install -y supervisor
-
 # Run the applications using Supervisor
-CMD ["/usr/bin/supervisord.conf"]
+CMD ["/usr/bin/supervisord"]
