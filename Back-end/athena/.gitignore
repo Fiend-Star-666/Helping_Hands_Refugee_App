@@ -1,0 +1,4 @@
+# Ignore all files and directories in Back-end/athena directory
+/Back-end/athena/target
+
+
