@@ -90,5 +90,9 @@ RUN (/usr/local/bin/docker-entrypoint.sh mysqld > /dev/null &) \
     && echo "MySQL is up - executing command" \
     && mysql -uroot -p1234 -e "CREATE DATABASE IF NOT EXISTS refugeeApp;"
 
+WORKDIR /usr/local/bin
+RUN ls -al
+WORKDIR /app
+
 # Run the applications using Supervisor
 CMD ["/usr/bin/supervisord"]
