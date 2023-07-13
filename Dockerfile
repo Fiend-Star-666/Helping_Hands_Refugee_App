@@ -75,9 +75,10 @@ RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 
 # Inline script to wait for MySQL service and execute SQL query
-RUN until mysqladmin ping -h "mysql" --silent; do \
-      echo "MySQL is unavailable - sleeping"; \
-      sleep 3; \
+RUN (/usr/local/bin/docker-entrypoint.sh mysqld > /dev/null &) \
+    && until mysqladmin ping -h "localhost" --silent; do \
+      echo "Waiting for MySQL to start..."; \
+      sleep 1; \
     done \
     && echo "MySQL is up - executing command" \
     && mysql -uroot -p1234 -e "source /docker-entrypoint-initdb.d/create_databases.sql"
