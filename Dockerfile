@@ -36,11 +36,11 @@ RUN npm install
 # Build the frontend application
 RUN npm run build
 
-# We start from the MySQL 8.0.26 image
 FROM ubuntu:latest
-#debian:latest
-#mysql:8.0.26
-USER root
+
+# Install apt-utils and GPG tools
+RUN apt-get update && apt-get install -y apt-utils gnupg gnupg2 gnupg1
+
 # Set the working directory
 WORKDIR /app
 
@@ -49,35 +49,24 @@ COPY --from=builder /app/ /app/Back-end/
 COPY --from=builder /app/target/athena-0.0.1-SNAPSHOT.jar ./Back-end/athena/target/athena-0.0.1-SNAPSHOT.jar
 COPY --from=builder /app/start-backend.sh ./start-backend.sh
 
-# Set the permissions for the start-backend.sh file
-RUN chmod +x ./start-backend.sh
-
 # Copy the frontend application to the container
 COPY --from=frontend-builder /app/ /app/Front-end
 
-# Make ports available to the world outside this container
-EXPOSE 3001
-EXPOSE 9091
-
-# Copy Supervisor config files
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-COPY supervisord.conf /app
-COPY supervisord.conf /usr/bin/supervisord.conf
-
-# Add the GPG key for the MySQL repository
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 467B942D3A79BD29
-RUN echo "deb http://repo.mysql.com/apt/debian/ buster mysql-8.0" > /etc/apt/sources.list.d/mysql.list
+# Make directories and change ownership
+RUN mkdir -p /var/run/mysqld
 
 # Update package lists and install curl, supervisor, Node.js, Maven, OpenJDK 17, and MySQL
-RUN apt-get update && apt-get install -y curl supervisor
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt-get install -y nodejs
-RUN apt-get install -y maven
-RUN apt-get install -y openjdk-17-jdk openjdk-17-jre
-RUN apt-get install -y mysql-server mysql-client
+RUN apt-get update && apt-get install -y curl supervisor nodejs maven openjdk-17-jdk openjdk-17-jre mysql-server mysql-client
 
-# Make directories and change ownership
-RUN mkdir -p /var/run/mysqld && chown -R mysql:mysql /var/run/mysqld
+# Root user environment and permissions
+USER root
+ENV MYSQL_ROOT_PASSWORD=1234
+
+# Make sure MySQL is stopped before changing ownership
+RUN service mysql stop
+
+# Change ownership of MySQL directories
+RUN chown -R mysql:mysql /var/run/mysqld
 
 RUN service mysql start && \
     until mysqladmin ping -h "localhost" --silent; do \
