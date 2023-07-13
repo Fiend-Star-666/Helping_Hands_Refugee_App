@@ -54,7 +54,14 @@ RUN npm install -g serve
 #&& rm -rf /var/lib/apt/lists/*
 
 EXPOSE 3001
-#EXPOSE 9091
+EXPOSE 9091
+
+# Copy supervisord configuration
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Run the applications using Supervisor
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+
 
 # Run the applications using Supervisor
 CMD ["/usr/bin/supervisord"]
