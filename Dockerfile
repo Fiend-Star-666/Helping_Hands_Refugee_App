@@ -78,6 +78,10 @@ USER root
 
 ENV MYSQL_ROOT_PASSWORD=1234
 
+# Copy SQL file
+COPY ./create_databases.sql /docker-entrypoint-initdb.d/create_databases.sql
+
+
 # Inline script to wait for MySQL service and execute SQL query
 RUN (/usr/local/bin/docker-entrypoint.sh mysqld > /dev/null &) \
     && until mysqladmin ping -h "localhost" --silent; do \
