@@ -63,6 +63,7 @@ EXPOSE 9091
 
 # Copy Supervisor config file
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY supervisord.conf /app
 
 
 # Run the following commands to add the GPG key for the MySQL repository
