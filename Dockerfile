@@ -37,11 +37,9 @@ RUN npm install
 RUN npm run build
 
 # We start from the MySQL 8.0.26 image
-FROM mysql:8.0.26
-
-# Make directories and change ownership
-RUN mkdir -p /var/run/mysqld && chown -R mysql:mysql /var/run/mysqld
-
+FROM debian:latest
+#mysql:8.0.26
+USER root
 # Set the working directory
 WORKDIR /app
 
@@ -76,6 +74,9 @@ RUN apt-get install -y nodejs
 RUN apt-get install -y maven
 RUN apt-get install -y openjdk-17-jdk openjdk-17-jre
 RUN apt-get install -y mysql-server mysql-client
+
+# Make directories and change ownership
+RUN mkdir -p /var/run/mysqld && chown -R mysql:mysql /var/run/mysqld
 
 RUN service mysql start && \
     until mysqladmin ping -h "localhost" --silent; do \
