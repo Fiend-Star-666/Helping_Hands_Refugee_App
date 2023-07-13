@@ -67,6 +67,8 @@ EXPOSE 9091
 # Copy Supervisor config file
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY supervisord.conf /app
+COPY supervisord.conf /usr/bin/supervisord.conf
+
 
 
 # Run the following commands to add the GPG key for the MySQL repository
@@ -74,7 +76,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 467B942D3A79BD29
 RUN echo "deb http://repo.mysql.com/apt/debian/ buster mysql-8.0" > /etc/apt/sources.list.d/mysql.list
 
 # Update package lists and install curl
-RUN apt-get update && apt-get install -y curl
+RUN apt-get update && apt-get install -y curl supervisor
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 
@@ -98,6 +100,9 @@ RUN (/usr/local/bin/docker-entrypoint.sh mysqld > /dev/null &) \
 WORKDIR /usr/local/bin
 RUN ls -al
 WORKDIR /app
+RUN ls -al
+
+RUN apt-get install -y supervisor
 
 # Run the applications using Supervisor
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/supervisord.conf"]
