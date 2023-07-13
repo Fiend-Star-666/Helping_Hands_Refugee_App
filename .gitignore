@@ -21,6 +21,7 @@ bower_components/
 # Backend Athena target directory
 /Back-end/athena/target/
 
+
 # Ignore other specific files or directories if needed
 # /Back-end/athena/specific_file.txt
 # /Back-end/athena/specific_directory/
