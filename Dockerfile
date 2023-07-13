@@ -79,10 +79,8 @@ RUN until mysqladmin ping -h "mysql" --silent; do \
       echo "MySQL is unavailable - sleeping"; \
       sleep 3; \
     done \
-    && echo "MySQL is up - executing command" 
-
-# Copy SQL script to create databases
-RUN mysql -uroot -p1234 -e "CREATE DATABASE refugeeApp;"
+    && echo "MySQL is up - executing command" \
+    && mysql -uroot -p1234 -e "source /docker-entrypoint-initdb.d/create_databases.sql"
 
 # Run the applications using Supervisor
 CMD ["/usr/bin/supervisord"]
