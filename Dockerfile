@@ -39,6 +39,7 @@ RUN npm run build
 # Start with a base image containing Java runtime and MySQL
 FROM mysql:8.0.26
 
+
 RUN mkdir -p /var/run/mysqld && chown -R mysql:mysql /var/run/mysqld
 
 # Configure debconf to make the MySQL installation non-interactive
