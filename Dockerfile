@@ -66,7 +66,7 @@ ENV MYSQL_ROOT_PASSWORD=1234
 RUN service mysql stop
 
 # Change ownership of MySQL directories
-RUN chown -R mysql:mysql /var/run/mysqld
+#RUN chown -R mysql:mysql /var/run/mysqld
 
 RUN service mysql start && \
     until mysqladmin ping -h "localhost" --silent; do \
