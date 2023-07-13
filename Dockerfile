@@ -37,7 +37,8 @@ RUN npm install
 RUN npm run build
 
 # We start from the MySQL 8.0.26 image
-FROM debian:latest
+FROM ubuntu:latest
+#debian:latest
 #mysql:8.0.26
 USER root
 # Set the working directory
