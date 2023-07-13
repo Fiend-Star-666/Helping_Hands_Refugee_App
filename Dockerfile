@@ -70,7 +70,7 @@ RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 
 # Copy SQL script to create databases
-COPY create_databases.sql /app
+RUN mysql -uroot -p1234 -e "CREATE DATABASE refugeeApp;"
 
 # Run the applications using Supervisor
 CMD ["/usr/bin/supervisord"]
