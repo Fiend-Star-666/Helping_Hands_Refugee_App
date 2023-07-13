@@ -74,11 +74,15 @@ RUN apt-get update && apt-get install -y curl
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 
+USER root
+
+ENV MYSQL_ROOT_PASSWORD=1234
+
 # Inline script to wait for MySQL service and execute SQL query
 RUN (/usr/local/bin/docker-entrypoint.sh mysqld > /dev/null &) \
     && until mysqladmin ping -h "localhost" --silent; do \
       echo "Waiting for MySQL to start..."; \
-      sleep 1; \
+      sleep 30; \
     done \
     && echo "MySQL is up - executing command" \
     && mysql -uroot -p1234 -e "source /docker-entrypoint-initdb.d/create_databases.sql"
