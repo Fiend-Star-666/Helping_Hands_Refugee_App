@@ -24,6 +24,12 @@ WORKDIR /app
 
 # Copy the package*.json and install dependencies first for leveraging Docker build cache
 COPY ./Front-end/package*.json ./
+# Update npm to the latest version
+RUN npm install -g npm@9.8.0
+
+# Update caniuse-lite
+RUN npx browserslist@latest --update-db
+
 RUN npm install
 
 # Copy the rest of the frontend source code
@@ -42,26 +48,18 @@ COPY --from=builder /app/ ./Back-end/
 COPY --from=frontend-builder /app/build ./Front-end/
 
 # Update package lists, install supervisor, Node.js, and clean up the cache
-# Install OpenJDK-17, supervisor
-RUN apt-get update && apt-get install -y supervisor curl && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y supervisor curl apt-utils && rm -rf /var/lib/apt/lists/*
 
-# Install Node.js v14 and npm
+# Install Node.js v18-LTS and npm
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
 RUN apt-get install -y nodejs
 
-
 RUN npm install -g serve
-#&& rm -rf /var/lib/apt/lists/*
 
 EXPOSE 3001
-EXPOSE 9091
 
 # Copy supervisord configuration
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Run the applications using Supervisor
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
-
-
-# Run the applications using Supervisor
-CMD ["/usr/bin/supervisord"]
