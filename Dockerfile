@@ -24,6 +24,7 @@ WORKDIR /app
 
 # Copy the package*.json and install dependencies first for leveraging Docker build cache
 COPY ./Front-end/package*.json ./
+
 # Update npm to the latest version
 RUN npm install -g npm@9.8.0
 
@@ -47,8 +48,8 @@ WORKDIR /app
 COPY --from=builder /app/ ./Back-end/
 COPY --from=frontend-builder /app/build ./Front-end/
 
-# Update package lists, install supervisor, Node.js, and clean up the cache
-RUN apt-get update && apt-get install -y supervisor curl apt-utils && rm -rf /var/lib/apt/lists/*
+# Update package lists, install supervisor, Node.js, nginx and clean up the cache
+RUN apt-get update && apt-get install -y supervisor curl apt-utils nginx  && rm -rf /var/lib/apt/lists/*
 
 # Install Node.js v18-LTS and npm
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
@@ -56,10 +57,14 @@ RUN apt-get install -y nodejs
 
 RUN npm install -g serve
 
-EXPOSE 3001
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 
 # Copy supervisord configuration
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+
+EXPOSE 3001
 
 # Run the applications using Supervisor
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
