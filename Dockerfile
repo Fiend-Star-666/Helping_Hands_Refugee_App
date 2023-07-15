@@ -17,7 +17,7 @@ COPY ./Back-end/athena .
 RUN mvn package
 
 # Start with a base image containing Node.js runtime
-FROM node:16 as frontend-builder
+FROM node:18 as frontend-builder
 
 # Set the working directory in the frontend
 WORKDIR /app
