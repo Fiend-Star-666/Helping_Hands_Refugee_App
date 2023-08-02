@@ -7,7 +7,6 @@ import org.springframework.test.context.ActiveProfiles;
 @ActiveProfiles("test")
 @SpringBootTest
 class AthenaApplicationTests {
-
 	@Test
 	void contextLoads() {
 	}
