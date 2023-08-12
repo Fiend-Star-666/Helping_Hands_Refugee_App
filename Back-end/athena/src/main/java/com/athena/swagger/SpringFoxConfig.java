@@ -6,6 +6,8 @@ import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger.web.UiConfiguration;
+import springfox.documentation.swagger.web.UiConfigurationBuilder;
 
 @Configuration
 public class SpringFoxConfig {
@@ -18,4 +20,13 @@ public class SpringFoxConfig {
                 .build()
                 .pathMapping("/api/v1");
     }
+
+//    @Bean
+//    public UiConfiguration uiConfig() {
+//        return UiConfigurationBuilder.builder()
+//                .deepLinking(true)
+//                .displayRequestDuration(true)
+//                .validatorUrl("") // Disable the online validator
+//                .build();
+//    }
 }
