@@ -65,6 +65,7 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 
 EXPOSE 3001
+EXPOSE 9091
 
 # Run the applications using Supervisor
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
