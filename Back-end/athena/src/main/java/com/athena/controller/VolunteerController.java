@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,8 +25,9 @@ import com.athena.simplePOJO.Location;
 
 @RestController
 @RequestMapping("/api/v1")
-@CrossOrigin(origins = "http://localhost:3001")
 public class VolunteerController {
+	private static final Integer DEFAULT_POINTS = 0;
+
 	@Autowired 
 	AccountRepository accountRepo;
 	
@@ -36,52 +39,43 @@ public class VolunteerController {
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-	
+
 	@PostMapping("/account/create/volunteer")
-	public Account registerVolunteer(@RequestBody Map<Object,String> payload) {
+	public ResponseEntity<Account> registerVolunteer(@RequestBody Map<Object,String> payload) {
 		System.out.println(payload);
-		
-		if(accountRepo.findByEmailId((String)payload.get("emailId"))!=null){
-			return null;
+
+		if(accountRepo.findByEmailId(payload.get("emailId")) != null) {
+			return new ResponseEntity<>(null, HttpStatus.CONFLICT);
 		}
-		
+
 		Location location = new Location();
-		
-		location.setStreetAddress((String)payload.get("streetAddress"));
-		location.setCity((String)payload.get("city"));
-		location.setState((String)payload.get("state"));
-		location.setZipcode((String)payload.get("zipCode"));
-		location.setCountry((String)payload.get("country"));
-		
+		location.setStreetAddress(payload.get("streetAddress"));
+		location.setCity(payload.get("city"));
+		location.setState(payload.get("state"));
+		location.setZipcode(payload.get("zipCode"));
+		location.setCountry(payload.get("country"));
+
 		Volunteer volunteer = new Volunteer();
-
 		volunteer.setLocation(location);
-		
-		volunteer.setEmailId((String)payload.get("emailId"));
-		volunteer.setPassword(passwordEncoder.encode((String)payload.get("password")));
-		
-		
-		volunteer.setName((String)payload.get("name"));
-		volunteer.setPhoneNumber((String)payload.get("phoneNumber"));
-
-		
-		volunteer.setPoints(0);
+		volunteer.setEmailId(payload.get("emailId"));
+		volunteer.setPassword(passwordEncoder.encode(payload.get("password")));
+		volunteer.setName(payload.get("name"));
+		volunteer.setPhoneNumber(payload.get("phoneNumber"));
+		volunteer.setPoints(DEFAULT_POINTS);
 		volunteer.setPointSystem(new PointSystem());
 		volunteer.getPointSystem().setPointItem(new ArrayList<>());
-		volunteer.getPointSystem().setTotalAmount(0);
-		
-		volunteer.setRating(0.0);
-		volunteer.setNumberOfTaskCompleted(0);
-		volunteer.setNumberOfTasksTaken(0);
-		
+		volunteer.getPointSystem().setTotalAmount(DEFAULT_POINTS);
+		volunteer.setRating(Double.valueOf(DEFAULT_POINTS));
+		volunteer.setNumberOfTaskCompleted(DEFAULT_POINTS);
+		volunteer.setNumberOfTasksTaken(DEFAULT_POINTS);
 		volunteer.setServices(new ArrayList<>());
-		//volunteer.setTasks(new ArrayList<>());
-		
 		volunteer.setSecurityRoles("ROLE_VOLUNTEER");
-		
+
 		pointSystemRepo.save(volunteer.getPointSystem());
 		accountRepo.save(volunteer);
 		volunteerRepo.save(volunteer);
-		return volunteer;
+
+		return new ResponseEntity<>(volunteer, HttpStatus.CREATED);
 	}
+
 }

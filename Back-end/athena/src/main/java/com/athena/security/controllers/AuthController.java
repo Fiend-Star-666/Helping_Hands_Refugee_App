@@ -24,7 +24,6 @@ import com.athena.security.payload.JwtResponse;
 
 
 
-@CrossOrigin(origins = "http://localhost:3001", maxAge = 3600)
 @RestController
 @RequestMapping("/api/v1")
 public class AuthController {
@@ -44,7 +43,6 @@ public class AuthController {
 	  @Autowired
 	  private MyUserDetailsService userDetailsService;
 	  
-	  @CrossOrigin
 	  @PostMapping("/signin")
 	  public ResponseEntity<?> authenticateUser( @RequestBody Map<String,String> Payload ) {
 		  System.out.println(Payload);

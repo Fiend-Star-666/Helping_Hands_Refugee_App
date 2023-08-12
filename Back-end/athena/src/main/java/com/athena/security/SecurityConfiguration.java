@@ -54,10 +54,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .exceptionHandling().authenticationEntryPoint( unauthorizedHandler).and()
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
         .authorizeRequests().antMatchers("/api/v1/**").permitAll()
-        .antMatchers("/api/test/all").permitAll()
-        .antMatchers("/api/test/refugee").hasAnyRole("REFUGEE","ADMIN")
-        .antMatchers("/api/test/volunteer").hasAnyRole("VOLUNTEER","ADMIN")
-        .antMatchers("/api/test/admin").hasRole("ADMIN")
+        .antMatchers("/api/v1/test/all").permitAll()
+        .antMatchers("/api/v1/test/refugee").hasAnyRole("REFUGEE","ADMIN")
+        .antMatchers("/api/v1/test/volunteer").hasAnyRole("VOLUNTEER","ADMIN")
+        .antMatchers("/api/v1/test/admin").hasRole("ADMIN")
         .anyRequest().authenticated();
        
         System.out.println("configure authorisation 1");
