@@ -14,5 +14,4 @@ public class Admin extends Account {
 
     private Date dateJoined;
 
-
 }

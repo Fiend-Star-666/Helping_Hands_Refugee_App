@@ -2,15 +2,15 @@ import axios from 'axios';
 
 const API_BASE_URL = "/api/v1";
 
-class LoginServices{
+class LoginServices {
 
-    loginAccount(loginDetails){
+    loginAccount(loginDetails) {
         console.log("login services");
-        return axios.post(API_BASE_URL+'/signin',loginDetails);
+        return axios.post(API_BASE_URL + '/signin', loginDetails);
     }
 
-    forgotPassword(forgotPassDetails){
-        return axios.post(API_BASE_URL+'/forgotPassword',forgotPassDetails);
+    forgotPassword(forgotPassDetails) {
+        return axios.post(API_BASE_URL + '/forgotPassword', forgotPassDetails);
     }
 }
 

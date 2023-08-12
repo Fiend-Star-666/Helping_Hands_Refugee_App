@@ -3,7 +3,6 @@
 // const { currentUser, showAdminBoard,showRefugeeBoard,showVolunteerBoard } = this.state;
 
 
-
 // export const NavBar = (props) => {
 //   <nav className="navbar navbar-expand navbar-light bg-light">
 //     <Link to={"/home"} className="navbar-brand">
@@ -31,7 +30,7 @@
 //           </Link>
 //         </li>
 //       )}
-      
+
 //       {showRefugeeBoard && (
 //         <li className="nav-item">
 //           <Link to={"/refugee"} className="nav-link">
@@ -54,7 +53,7 @@
 //       </Link>
 //       </li>
 //       )}
-    
+
 
 //         <li className="nav-item">
 //           <Link to={"/profile"} className="nav-link">

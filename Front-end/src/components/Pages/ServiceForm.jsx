@@ -1,8 +1,6 @@
-import React, { Component, useEffect, useState } from 'react';
-import { useParams, useHistory, Prompt } from "react-router-dom";
-import DatePicker from "react-datepicker";  
-import "react-datepicker/dist/react-datepicker.css";  
-import { render } from '@testing-library/react';
+import React, {useState} from 'react';
+import {useHistory} from "react-router-dom";
+import "react-datepicker/dist/react-datepicker.css";
 import AuthService from "../../services/auth.service";
 import VolunteerServices from "../../services/Volunteer.service";
 
@@ -16,7 +14,7 @@ export default function ServiceForm() {
     const [serviceSubject, setServiceSubject] = useState('');
     const [serviceDescription, setServiceDescription] = useState('');
     const [serviceOther, setServiceOther] = useState('');
-    
+
     const handleServiceTypeChange = (e) => {
         setServiceType(e.target.value);
     }
@@ -45,27 +43,27 @@ export default function ServiceForm() {
         }
         console.log(service);
         VolunteerServices.createService(service).then(response => {
-            history.push('/volunteer');
-        }
+                history.push('/volunteer');
+            }
         ).catch(function (error) {
-            alert('Please Wait an error has Occured');
-        }
+                alert('Please Wait an error has Occured');
+            }
         );
     }
 
-let otherType;
+    let otherType;
 
-if(serviceType == 'Other'){
-    otherType = (
-        <div>
-            <div className='form-group'>
-                <label>Other Type</label>
-                <input type='text' placeholder="Other Type" className='form-control' name='otherType' 
-                value={serviceOther} onChange={handleServiceOtherChange} />
+    if (serviceType == 'Other') {
+        otherType = (
+            <div>
+                <div className='form-group'>
+                    <label>Other Type</label>
+                    <input type='text' placeholder="Other Type" className='form-control' name='otherType'
+                           value={serviceOther} onChange={handleServiceOtherChange}/>
                 </div>
-        </div>
-    );
-}
+            </div>
+        );
+    }
 
     return (
         <div className="container">
@@ -74,39 +72,43 @@ if(serviceType == 'Other'){
                     <h2>Create a New Service</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
-                        <label> 
-                            Service Type:
-                            
+                            <label>
+                                Service Type:
+
                                 <select value={serviceType} onChange={handleServiceTypeChange} className='mx-3'>
-                                <option  value={null}> {"Choose the option"} </option>
-                                <option  value={"Food"}> {"Food"} </option>
-                                <option  value={"Cloth"}> {"Cloth"} </option>
-                                <option  value={"Medicine"}> {"Medicine"} </option>
-                                <option value={"Shelter"}> {"Shelter"} </option>
-                                <option value={"Transport"}> {"Transport"} </option>
-                                <option value={"Repair"}> {"Repair"} </option>
-                                <option value={"Job"}> {"Job"} </option>
-                                <option  value={"Other"}> {"Other"} </option>  
+                                    <option value={null}> {"Choose the option"} </option>
+                                    <option value={"Food"}> {"Food"} </option>
+                                    <option value={"Cloth"}> {"Cloth"} </option>
+                                    <option value={"Medicine"}> {"Medicine"} </option>
+                                    <option value={"Shelter"}> {"Shelter"} </option>
+                                    <option value={"Transport"}> {"Transport"} </option>
+                                    <option value={"Repair"}> {"Repair"} </option>
+                                    <option value={"Job"}> {"Job"} </option>
+                                    <option value={"Other"}> {"Other"} </option>
                                 </select>
-                            
-                        </label>
+
+                            </label>
                         </div>
 
                         {otherType}
-                        
+
                         <div className="form-group">
                             <label>Service Subject</label>
-                            <input type='text' placeholder="Service Subject" value={serviceSubject} onChange={handleServiceSubjectChange} className='form-control' name='serviceSubject' />
+                            <input type='text' placeholder="Service Subject" value={serviceSubject}
+                                   onChange={handleServiceSubjectChange} className='form-control'
+                                   name='serviceSubject'/>
                         </div>
 
                         <div className="form-group">
                             <label>Service Description</label>
-                            <textarea className="form-control" placeholder='Add Description here' value={serviceDescription} onChange={handleServiceDescriptionChange} rows="5" name='description'></textarea>
+                            <textarea className="form-control" placeholder='Add Description here'
+                                      value={serviceDescription} onChange={handleServiceDescriptionChange} rows="5"
+                                      name='description'></textarea>
                         </div>
 
                         <button type="submit" className="btn btn-primary">Submit</button>
-                        
-                    </form>                           
+
+                    </form>
                 </div>
             </div>
         </div>

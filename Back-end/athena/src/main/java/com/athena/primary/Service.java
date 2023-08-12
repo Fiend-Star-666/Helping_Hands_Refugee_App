@@ -1,13 +1,11 @@
 package com.athena.primary;
 
-import javax.persistence.*;
-
 import com.athena.primary.enums.ServiceType;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.util.List;
 
 @Getter
@@ -15,23 +13,23 @@ import java.util.List;
 @Entity
 public class Service {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	@Enumerated(EnumType.STRING)
-	private ServiceType serviceType;
+    @Enumerated(EnumType.STRING)
+    private ServiceType serviceType;
 
-	private String otherService;
+    private String otherService;
 
-	private String subject;
+    private String subject;
 
-	private String description;
+    private String description;
 
-	@JsonBackReference(value = "volunteer-services")
-	@ManyToOne
-	private Volunteer volunteer;
+    @JsonBackReference(value = "volunteer-services")
+    @ManyToOne
+    private Volunteer volunteer;
 
-	@ManyToMany(mappedBy = "services")
-	private List<Refugee> refugees;
+    @ManyToMany(mappedBy = "services")
+    private List<Refugee> refugees;
 }

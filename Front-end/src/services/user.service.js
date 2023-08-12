@@ -4,41 +4,39 @@ import authHeader from './auth-header';
 const API_URL = '/api/test';
 
 class UserService {
-  getPublicContent() {
-    
-    return axios.get(API_URL + '/all');
-  }
+    getPublicContent() {
 
-  
-  getUserBoard() {
-    
-    console.log("user service get user board");
-    console.log(authHeader());
-    return axios.get(API_URL + '/user', { headers: authHeader() });
-  }
+        return axios.get(API_URL + '/all');
+    }
 
-  getAdminBoard() {
-    console.log("user Admin get Admin board");
-    console.log(authHeader());
-    return axios.get(API_URL + '/admin', { headers: authHeader() });
-  }
+    getUserBoard() {
 
-  getVolunteerBoard() {
-    console.log("user Volunteer get Volunteer board");
-    console.log(authHeader());
-    return axios.get(API_URL + '/volunteer', { headers: authHeader() });
-  }
+        console.log("user service get user board");
+        console.log(authHeader());
+        return axios.get(API_URL + '/user', {headers: authHeader()});
+    }
 
-  getRefugeeBoard() {
-    console.log("Refugee service get Refugee board");
-    console.log(authHeader());
-    return axios.get(API_URL + '/refugee', { headers: authHeader() });
-  }
+    getAdminBoard() {
+        console.log("user Admin get Admin board");
+        console.log(authHeader());
+        return axios.get(API_URL + '/admin', {headers: authHeader()});
+    }
+
+    getVolunteerBoard() {
+        console.log("user Volunteer get Volunteer board");
+        console.log(authHeader());
+        return axios.get(API_URL + '/volunteer', {headers: authHeader()});
+    }
+
+    getRefugeeBoard() {
+        console.log("Refugee service get Refugee board");
+        console.log(authHeader());
+        return axios.get(API_URL + '/refugee', {headers: authHeader()});
+    }
 
 }
 
 export default new UserService();
-
 
 
 /*

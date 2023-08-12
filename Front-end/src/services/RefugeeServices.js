@@ -7,11 +7,11 @@ class RefugeeServices {
         return axios.post(API_BASE_URL + '/refugee/create/task', task);
     }
 
-    viewAllTasks(){
+    viewAllTasks() {
         return axios.get(API_BASE_URL + '/refugee/task/viewall');
     }
 
-    viewTasksViaAccountId(accountId){
+    viewTasksViaAccountId(accountId) {
         return axios.get(API_BASE_URL + '/refugee/task/view/' + accountId);
     }
 

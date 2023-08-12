@@ -1,8 +1,10 @@
 package com.athena.security.controllers;
 
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import com.athena.repository.AccountRepository;
+import com.athena.security.MyUserDetailsService;
+import com.athena.security.jpaModels.MyUserDetails;
+import com.athena.security.jwt.JwtUtils;
+import com.athena.security.payload.JwtResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,73 +12,69 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.athena.repository.AccountRepository;
-import com.athena.security.MyUserDetailsService;
-import com.athena.security.jpaModels.MyUserDetails;
-import com.athena.security.jwt.JwtUtils;
-import com.athena.security.payload.JwtResponse;
-
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 
 @RestController
 @RequestMapping("/api/v1")
 public class AuthController {
-	 @Autowired
-	  AuthenticationManager authenticationManager;
+    @Autowired
+    AuthenticationManager authenticationManager;
 
-	 @Autowired
-	 AccountRepository   accountRepo;
-   
-	  @Autowired
-	  PasswordEncoder encoder;
+    @Autowired
+    AccountRepository accountRepo;
 
-	  @Autowired
-	  JwtUtils jwtUtils;
+    @Autowired
+    PasswordEncoder encoder;
 
-	 
-	  @Autowired
-	  private MyUserDetailsService userDetailsService;
-	  
-	  @PostMapping("/signin")
-	  public ResponseEntity<?> authenticateUser( @RequestBody Map<String,String> Payload ) {
-		  System.out.println(Payload);
-		  String emailId=(String)Payload.get("email");
-		  
-		  String password=(String)Payload.get("password");
-		  
-	        //UserDetails userDetails = userDetailsService.loadUserByUsername(emailId);
-	        System.out.println("hehe1");
-	    Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(emailId,password));
-		  System.out.println("hehe2");
+    @Autowired
+    JwtUtils jwtUtils;
 
-	    SecurityContextHolder.getContext().setAuthentication(authentication);
-		  System.out.println("hehe3");
 
-	    String jwt = jwtUtils.generateJwtToken(authentication);
-	    System.out.println("hehe4");
-	    
-	    MyUserDetails userDetails = (MyUserDetails) authentication.getPrincipal();    
-		  System.out.println("hehe5");
+    @Autowired
+    private MyUserDetailsService userDetailsService;
 
-	    List<String> roles = userDetails.getAuthorities().stream()
-	        .map(item -> item.getAuthority())
-	        .collect(Collectors.toList());
-		  System.out.println("hehe6");
+    @PostMapping("/signin")
+    public ResponseEntity<?> authenticateUser(@RequestBody Map<String, String> Payload) {
+        System.out.println(Payload);
+        String emailId = (String) Payload.get("email");
 
-	    return ResponseEntity.ok(new JwtResponse(jwt,
-	                         userDetails.getType(),
-	    					userDetails.getAccId(),
-	                         userDetails.getUsername(),
-	                         roles));
-	  }
+        String password = (String) Payload.get("password");
 
-	  
+        //UserDetails userDetails = userDetailsService.loadUserByUsername(emailId);
+        System.out.println("hehe1");
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(emailId, password));
+        System.out.println("hehe2");
+
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        System.out.println("hehe3");
+
+        String jwt = jwtUtils.generateJwtToken(authentication);
+        System.out.println("hehe4");
+
+        MyUserDetails userDetails = (MyUserDetails) authentication.getPrincipal();
+        System.out.println("hehe5");
+
+        List<String> roles = userDetails.getAuthorities().stream()
+                .map(item -> item.getAuthority())
+                .collect(Collectors.toList());
+        System.out.println("hehe6");
+
+        return ResponseEntity.ok(new JwtResponse(jwt,
+                userDetails.getType(),
+                userDetails.getAccId(),
+                userDetails.getUsername(),
+                roles));
+    }
+
+
 }
 /*
  * @PostMapping("/signup")

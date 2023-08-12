@@ -1,7 +1,3 @@
-import React, { Component } from 'react';
-import VehicleService from '../services/VehicleService';
-import Moment from 'moment';
-
 /*
 class ViewAllAccountsViaAdmin extends Component{
     constructor(props){

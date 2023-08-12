@@ -1,6 +1,6 @@
 import './App.css';
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
 import AuthService from './services/auth.service';
 import SLogin from './components/securityComponents/login.component';
 import Profile from './components/securityComponents/profile.component';

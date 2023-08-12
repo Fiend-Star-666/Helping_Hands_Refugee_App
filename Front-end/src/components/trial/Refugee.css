@@ -1,261 +1,284 @@
 
 .Refugee_Refugee {
-	position: relative;
-	left: 0px;
-	top: 0px;
-	margin: auto;
-	width: 100%;
-	height: 100vh;
-	overflow: auto;
-	background: rgba(255,255,255,1.00);
+    position: relative;
+    left: 0px;
+    top: 0px;
+    margin: auto;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    background: rgba(255, 255, 255, 1.00);
 }
+
 .Refugee_Refugee .Home {
-	position: absolute;
-	left: 528px;
-	top: 58px;
-	width: 164px;
-	height: 48px;
-	color: rgba(111,128,234,1.00);
-	font-family: Inter;
-	font-size: 24px;
-	font-weight: 500;
-	line-height: 28.125px;
+    position: absolute;
+    left: 528px;
+    top: 58px;
+    width: 164px;
+    height: 48px;
+    color: rgba(111, 128, 234, 1.00);
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.125px;
 }
+
 .Refugee_Refugee .Dashboard {
-	position: absolute;
-	left: 637px;
-	top: 59px;
-	width: 164px;
-	height: 48px;
-	color: rgba(111,128,234,1.00);
-	font-family: Inter;
-	font-size: 24px;
-	font-weight: 500;
-	line-height: 28.125px;
+    position: absolute;
+    left: 637px;
+    top: 59px;
+    width: 164px;
+    height: 48px;
+    color: rgba(111, 128, 234, 1.00);
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.125px;
 }
+
 .Refugee_Refugee .Logout {
-	position: absolute;
-	left: 802px;
-	top: 59px;
-	width: 164px;
-	height: 46px;
-	color: rgba(111,128,234,1.00);
-	font-family: Inter;
-	font-size: 24px;
-	font-weight: 500;
-	line-height: 28.125px;
+    position: absolute;
+    left: 802px;
+    top: 59px;
+    width: 164px;
+    height: 46px;
+    color: rgba(111, 128, 234, 1.00);
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.125px;
 }
+
 .Refugee_Refugee .image2 {
-	position: absolute;
-	left: 0px;
-	top: -6px;
-	width: 188px;
-	height: 130px;
-	object-fit: cover;
-	overflow: hidden;
+    position: absolute;
+    left: 0px;
+    top: -6px;
+    width: 188px;
+    height: 130px;
+    object-fit: cover;
+    overflow: hidden;
 }
+
 .Refugee_Refugee .image3 {
-	position: absolute;
-	left: 0px;
-	top: -6px;
-	width: 188px;
-	height: 130px;
-	object-fit: cover;
-	overflow: hidden;
+    position: absolute;
+    left: 0px;
+    top: -6px;
+    width: 188px;
+    height: 130px;
+    object-fit: cover;
+    overflow: hidden;
 }
+
 .Refugee_Refugee .Rectangle5 {
-	position: absolute;
-	left: 55px;
-	top: 143px;
-	width: 1327px;
-	height: 273px;
-	object-fit: cover;
-	overflow: hidden;
+    position: absolute;
+    left: 55px;
+    top: 143px;
+    width: 1327px;
+    height: 273px;
+    object-fit: cover;
+    overflow: hidden;
 }
+
 .Refugee_Refugee .Rectangle4 {
-	position: absolute;
-	left: 277px;
-	top: 504px;
-	width: 886px;
-	height: 221px;
-	border-radius: 20px;
+    position: absolute;
+    left: 277px;
+    top: 504px;
+    width: 886px;
+    height: 221px;
+    border-radius: 20px;
 }
+
 .Refugee_Refugee .CreatedTasks {
-	position: absolute;
-	left: 277px;
-	top: 451px;
-	width: 415px;
-	height: 65px;
-	color: rgba(70,65,65,1.00);
-	font-family: Inter;
-	font-size: 32px;
-	font-weight: 300;
-	line-height: 37.5px;
+    position: absolute;
+    left: 277px;
+    top: 451px;
+    width: 415px;
+    height: 65px;
+    color: rgba(70, 65, 65, 1.00);
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 37.5px;
 }
+
 .Refugee_Refugee .Taskingtitlegoeshere {
-	position: absolute;
-	left: 351px;
-	top: 546px;
-	width: 502px;
-	height: 52px;
-	color: rgba(0,0,0,1.00);
-	font-family: Inter;
-	font-size: 24px;
-	font-weight: 500;
-	line-height: 28.125px;
+    position: absolute;
+    left: 351px;
+    top: 546px;
+    width: 502px;
+    height: 52px;
+    color: rgba(0, 0, 0, 1.00);
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.125px;
 }
+
 .Refugee_Refugee .Location {
-	position: absolute;
-	left: 351px;
-	top: 579px;
-	width: 82px;
-	height: 24px;
-	color: rgba(84,74,74,1.00);
-	font-family: Inter;
-	font-size: 20px;
-	font-weight: 400;
-	line-height: 23.4375px;
+    position: absolute;
+    left: 351px;
+    top: 579px;
+    width: 82px;
+    height: 24px;
+    color: rgba(84, 74, 74, 1.00);
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23.4375px;
 }
+
 .Refugee_Refugee .LoremipsumdolorsitametconsecteturadipiscingelitseddoeiusmodtemporincididuntutlaboreetdoloremagnaaliquaSapienegetmiproinsed {
-	position: absolute;
-	left: 351px;
-	top: 614px;
-	width: 518px;
-	height: 70px;
-	color: rgba(0,0,0,1.00);
-	font-family: Inter;
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 18.75px;
+    position: absolute;
+    left: 351px;
+    top: 614px;
+    width: 518px;
+    height: 70px;
+    color: rgba(0, 0, 0, 1.00);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.75px;
 }
+
 .Refugee_Refugee .Rectangle4_1 {
-	position: absolute;
-	left: 55px;
-	top: 142px;
-	width: 1327px;
-	height: 273px;
-	background: rgba(255,177,90,0.60);
+    position: absolute;
+    left: 55px;
+    top: 142px;
+    width: 1327px;
+    height: 273px;
+    background: rgba(255, 177, 90, 0.60);
 }
+
 .Refugee_Refugee .Welcomeusername {
-	position: absolute;
-	left: 459px;
-	top: 207px;
-	width: 574px;
-	height: 105px;
-	color: rgba(255,255,255,1.00);
-	font-family: Inter;
-	font-size: 48px;
-	font-weight: 400;
-	line-height: 56.25px;
+    position: absolute;
+    left: 459px;
+    top: 207px;
+    width: 574px;
+    height: 105px;
+    color: rgba(255, 255, 255, 1.00);
+    font-family: Inter;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 56.25px;
 }
+
 .Refugee_Refugee .Rectangle6 {
-	position: absolute;
-	left: 589px;
-	top: 312px;
-	width: 198px;
-	height: 58px;
-	background: rgba(252,252,255,1.00);
-	border-radius: 33px;
+    position: absolute;
+    left: 589px;
+    top: 312px;
+    width: 198px;
+    height: 58px;
+    background: rgba(252, 252, 255, 1.00);
+    border-radius: 33px;
 }
+
 .Refugee_Refugee .Needahelpinghandwithsomething {
-	position: absolute;
-	left: 440px;
-	top: 268px;
-	width: 504px;
-	height: 51px;
-	display: flex;
-	justify-content: center;
-	text-align: center;
-	color: rgba(255,255,255,1.00);
-	font-family: Inter;
-	font-size: 24px;
-	font-weight: 500;
-	line-height: 28.125px;
+    position: absolute;
+    left: 440px;
+    top: 268px;
+    width: 504px;
+    height: 51px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: rgba(255, 255, 255, 1.00);
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.125px;
 }
+
 .Refugee_Refugee .CreateTask {
-	position: absolute;
-	left: 617px;
-	top: 325px;
-	width: 149px;
-	height: 33px;
-	color: rgba(111,128,234,1.00);
-	font-family: Inter;
-	font-size: 24px;
-	font-weight: 400;
-	line-height: 28.125px;
+    position: absolute;
+    left: 617px;
+    top: 325px;
+    width: 149px;
+    height: 33px;
+    color: rgba(111, 128, 234, 1.00);
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28.125px;
 }
+
 .Refugee_Refugee .inprogressicon {
-	position: absolute;
-	left: 106px;
-	top: 656px;
-	width: 79px;
-	height: 79px;
-	object-fit: cover;
-	overflow: hidden;
+    position: absolute;
+    left: 106px;
+    top: 656px;
+    width: 79px;
+    height: 79px;
+    object-fit: cover;
+    overflow: hidden;
 }
+
 .Refugee_Refugee .InProgress {
-	position: absolute;
-	left: 82px;
-	top: 747px;
-	width: 128px;
-	height: 61px;
-	color: rgba(109,93,93,1.00);
-	font-family: Inter;
-	font-size: 24px;
-	font-weight: 400;
-	line-height: 28.125px;
+    position: absolute;
+    left: 82px;
+    top: 747px;
+    width: 128px;
+    height: 61px;
+    color: rgba(109, 93, 93, 1.00);
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28.125px;
 }
+
 .Refugee_Refugee .Past {
-	position: absolute;
-	left: 121px;
-	top: 892px;
-	width: 128px;
-	height: 61px;
-	color: rgba(109,93,93,1.00);
-	font-family: Inter;
-	font-size: 24px;
-	font-weight: 400;
-	line-height: 28.125px;
+    position: absolute;
+    left: 121px;
+    top: 892px;
+    width: 128px;
+    height: 61px;
+    color: rgba(109, 93, 93, 1.00);
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28.125px;
 }
+
 .Refugee_Refugee .Created {
-	position: absolute;
-	left: 94px;
-	top: 590px;
-	width: 128px;
-	height: 61px;
-	color: rgba(109,93,93,1.00);
-	font-family: Inter;
-	font-size: 24px;
-	font-weight: 400;
-	line-height: 28.125px;
+    position: absolute;
+    left: 94px;
+    top: 590px;
+    width: 128px;
+    height: 61px;
+    color: rgba(109, 93, 93, 1.00);
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28.125px;
 }
+
 .Refugee_Refugee .createdicon {
-	position: absolute;
-	left: 106px;
-	top: 504px;
-	width: 79px;
-	height: 79px;
-	object-fit: cover;
-	overflow: hidden;
+    position: absolute;
+    left: 106px;
+    top: 504px;
+    width: 79px;
+    height: 79px;
+    object-fit: cover;
+    overflow: hidden;
 }
+
 .Refugee_Refugee .PostedJune62022 {
-	position: absolute;
-	left: 351px;
-	top: 684px;
-	width: 216px;
-	height: 24px;
-	color: rgba(84,74,74,1.00);
-	font-family: Inter;
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 18.75px;
+    position: absolute;
+    left: 351px;
+    top: 684px;
+    width: 216px;
+    height: 24px;
+    color: rgba(84, 74, 74, 1.00);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.75px;
 }
+
 .Refugee_Refugee .pasticon {
-	position: absolute;
-	left: 106px;
-	top: 808px;
-	width: 79px;
-	height: 79px;
-	object-fit: cover;
-	overflow: hidden;
+    position: absolute;
+    left: 106px;
+    top: 808px;
+    width: 79px;
+    height: 79px;
+    object-fit: cover;
+    overflow: hidden;
 }

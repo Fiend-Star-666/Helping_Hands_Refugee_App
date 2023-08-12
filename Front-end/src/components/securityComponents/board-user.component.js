@@ -8,7 +8,7 @@ import styled from "styled-components";
 
 const CardWrapper = styled.div`
   width: 100%;
-  perspective: 2000;
+  //perspective: 2000;
   display: flex;
   align-items: center;
   justify-content: center;

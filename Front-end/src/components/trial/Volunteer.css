@@ -1,396 +1,433 @@
 
 .Volunteer_Volunteer {
-	position: relative;
-	left: 0px;
-	top: 0px;
-	margin: auto;
-	width: 100%;
-	height: 100vh;
-	overflow: auto;
-	background: rgba(255,255,255,1.00);
+    position: relative;
+    left: 0px;
+    top: 0px;
+    margin: auto;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    background: rgba(255, 255, 255, 1.00);
 }
+
 .Volunteer_Volunteer .Home {
-	position: absolute;
-	left: 528px;
-	top: 58px;
-	width: 164px;
-	height: 48px;
-	color: rgba(111,128,234,1.00);
-	font-family: Inter;
-	font-size: 24px;
-	font-weight: 500;
-	line-height: 28.125px;
+    position: absolute;
+    left: 528px;
+    top: 58px;
+    width: 164px;
+    height: 48px;
+    color: rgba(111, 128, 234, 1.00);
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.125px;
 }
+
 .Volunteer_Volunteer .Dashboard {
-	position: absolute;
-	left: 637px;
-	top: 59px;
-	width: 164px;
-	height: 48px;
-	color: rgba(111,128,234,1.00);
-	font-family: Inter;
-	font-size: 24px;
-	font-weight: 500;
-	line-height: 28.125px;
+    position: absolute;
+    left: 637px;
+    top: 59px;
+    width: 164px;
+    height: 48px;
+    color: rgba(111, 128, 234, 1.00);
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.125px;
 }
+
 .Volunteer_Volunteer .Logout {
-	position: absolute;
-	left: 802px;
-	top: 59px;
-	width: 164px;
-	height: 46px;
-	color: rgba(111,128,234,1.00);
-	font-family: Inter;
-	font-size: 24px;
-	font-weight: 500;
-	line-height: 28.125px;
+    position: absolute;
+    left: 802px;
+    top: 59px;
+    width: 164px;
+    height: 46px;
+    color: rgba(111, 128, 234, 1.00);
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.125px;
 }
+
 .Volunteer_Volunteer .image2 {
-	position: absolute;
-	left: 0px;
-	top: -6px;
-	width: 188px;
-	height: 130px;
-	object-fit: cover;
-	overflow: hidden;
+    position: absolute;
+    left: 0px;
+    top: -6px;
+    width: 188px;
+    height: 130px;
+    object-fit: cover;
+    overflow: hidden;
 }
+
 .Volunteer_Volunteer .image3 {
-	position: absolute;
-	left: 0px;
-	top: -6px;
-	width: 188px;
-	height: 130px;
-	object-fit: cover;
-	overflow: hidden;
+    position: absolute;
+    left: 0px;
+    top: -6px;
+    width: 188px;
+    height: 130px;
+    object-fit: cover;
+    overflow: hidden;
 }
+
 .Volunteer_Volunteer .Rectangle1 {
-	position: absolute;
-	left: 311px;
-	top: 511px;
-	width: 886px;
-	height: 221px;
-	border-radius: 20px;
+    position: absolute;
+    left: 311px;
+    top: 511px;
+    width: 886px;
+    height: 221px;
+    border-radius: 20px;
 }
+
 .Volunteer_Volunteer .AvailableTasks {
-	position: absolute;
-	left: 319px;
-	top: 456px;
-	width: 415px;
-	height: 65px;
-	color: rgba(70,65,65,1.00);
-	font-family: Inter;
-	font-size: 32px;
-	font-weight: 300;
-	line-height: 37.5px;
+    position: absolute;
+    left: 319px;
+    top: 456px;
+    width: 415px;
+    height: 65px;
+    color: rgba(70, 65, 65, 1.00);
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 37.5px;
 }
+
 .Volunteer_Volunteer .Ellipse1 {
-	position: absolute;
-	left: 358px;
-	top: 544px;
-	width: 117px;
-	height: 114px;
-	background: rgba(217,217,217,1.00);
-	border-radius: 50%;
+    position: absolute;
+    left: 358px;
+    top: 544px;
+    width: 117px;
+    height: 114px;
+    background: rgba(217, 217, 217, 1.00);
+    border-radius: 50%;
 }
+
 .Volunteer_Volunteer .Varia {
-	position: absolute;
-	left: 397px;
-	top: 667px;
-	width: 38px;
-	height: 19px;
-	color: rgba(0,0,0,1.00);
-	font-family: Inter;
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 18.75px;
+    position: absolute;
+    left: 397px;
+    top: 667px;
+    width: 38px;
+    height: 19px;
+    color: rgba(0, 0, 0, 1.00);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.75px;
 }
+
 .Volunteer_Volunteer .Babysittingfrom8amto5pm {
-	position: absolute;
-	left: 511px;
-	top: 544px;
-	width: 502px;
-	height: 52px;
-	color: rgba(0,0,0,1.00);
-	font-family: Inter;
-	font-size: 24px;
-	font-weight: 500;
-	line-height: 28.125px;
+    position: absolute;
+    left: 511px;
+    top: 544px;
+    width: 502px;
+    height: 52px;
+    color: rgba(0, 0, 0, 1.00);
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.125px;
 }
+
 .Volunteer_Volunteer .London {
-	position: absolute;
-	left: 511px;
-	top: 577px;
-	width: 71px;
-	height: 24px;
-	color: rgba(84,74,74,1.00);
-	font-family: Inter;
-	font-size: 20px;
-	font-weight: 400;
-	line-height: 23.4375px;
+    position: absolute;
+    left: 511px;
+    top: 577px;
+    width: 71px;
+    height: 24px;
+    color: rgba(84, 74, 74, 1.00);
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23.4375px;
 }
+
 .Volunteer_Volunteer .Ineedsomeonetotakecaremy3yearolddaughterwhileImworkingPrefervolunteersnearmeThankyou {
-	position: absolute;
-	left: 511px;
-	top: 612px;
-	width: 518px;
-	height: 70px;
-	color: rgba(0,0,0,1.00);
-	font-family: Inter;
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 18.75px;
+    position: absolute;
+    left: 511px;
+    top: 612px;
+    width: 518px;
+    height: 70px;
+    color: rgba(0, 0, 0, 1.00);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.75px;
 }
+
 .Volunteer_Volunteer .image4 {
-	position: absolute;
-	left: 86px;
-	top: 456px;
-	width: 53px;
-	height: 53px;
+    position: absolute;
+    left: 86px;
+    top: 456px;
+    width: 53px;
+    height: 53px;
 }
+
 .Volunteer_Volunteer .image6 {
-	position: absolute;
-	left: 1137px;
-	top: 538px;
-	width: 32px;
-	height: 32px;
-	object-fit: cover;
-	overflow: hidden;
+    position: absolute;
+    left: 1137px;
+    top: 538px;
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    overflow: hidden;
 }
+
 .Volunteer_Volunteer .image7 {
-	position: absolute;
-	left: 1090px;
-	top: 536px;
-	width: 36px;
-	height: 36px;
-	object-fit: cover;
-	overflow: hidden;
+    position: absolute;
+    left: 1090px;
+    top: 536px;
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    overflow: hidden;
 }
+
 .Volunteer_Volunteer .Text {
-	position: absolute;
-	left: 511px;
-	top: 612px;
-	width: 518px;
-	height: 70px;
-	color: rgba(0,0,0,1.00);
-	font-family: Inter;
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 18.75px;
+    position: absolute;
+    left: 511px;
+    top: 612px;
+    width: 518px;
+    height: 70px;
+    color: rgba(0, 0, 0, 1.00);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.75px;
 }
+
 .Volunteer_Volunteer .image13 {
-	position: absolute;
-	left: 1137px;
-	top: 538px;
-	width: 32px;
-	height: 32px;
-	object-fit: cover;
-	overflow: hidden;
+    position: absolute;
+    left: 1137px;
+    top: 538px;
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    overflow: hidden;
 }
+
 .Volunteer_Volunteer .image14 {
-	position: absolute;
-	left: 1090px;
-	top: 536px;
-	width: 36px;
-	height: 36px;
-	object-fit: cover;
-	overflow: hidden;
+    position: absolute;
+    left: 1090px;
+    top: 536px;
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    overflow: hidden;
 }
+
 .Volunteer_Volunteer .Rectangle3 {
-	position: absolute;
-	left: 311px;
-	top: 757px;
-	width: 886px;
-	height: 221px;
-	border-radius: 20px;
+    position: absolute;
+    left: 311px;
+    top: 757px;
+    width: 886px;
+    height: 221px;
+    border-radius: 20px;
 }
+
 .Volunteer_Volunteer .Taskingtitlegoeshere {
-	position: absolute;
-	left: 511px;
-	top: 790px;
-	width: 502px;
-	height: 52px;
-	color: rgba(0,0,0,1.00);
-	font-family: Inter;
-	font-size: 24px;
-	font-weight: 500;
-	line-height: 28.125px;
+    position: absolute;
+    left: 511px;
+    top: 790px;
+    width: 502px;
+    height: 52px;
+    color: rgba(0, 0, 0, 1.00);
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.125px;
 }
+
 .Volunteer_Volunteer .Location {
-	position: absolute;
-	left: 511px;
-	top: 823px;
-	width: 82px;
-	height: 33px;
-	color: rgba(84,74,74,1.00);
-	font-family: Inter;
-	font-size: 20px;
-	font-weight: 400;
-	line-height: 23.4375px;
+    position: absolute;
+    left: 511px;
+    top: 823px;
+    width: 82px;
+    height: 33px;
+    color: rgba(84, 74, 74, 1.00);
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23.4375px;
 }
+
 .Volunteer_Volunteer .LoremipsumdolorsitametconsecteturadipiscingelitseddoeiusmodtemporincididuntutlaboreetdoloremagnaaliquaSapienegetmiproinsed {
-	position: absolute;
-	left: 511px;
-	top: 858px;
-	width: 518px;
-	height: 70px;
-	color: rgba(0,0,0,1.00);
-	font-family: Inter;
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 18.75px;
+    position: absolute;
+    left: 511px;
+    top: 858px;
+    width: 518px;
+    height: 70px;
+    color: rgba(0, 0, 0, 1.00);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.75px;
 }
+
 .Volunteer_Volunteer .Ellipse4 {
-	position: absolute;
-	left: 358px;
-	top: 776px;
-	width: 117px;
-	height: 114px;
-	background: rgba(217,217,217,1.00);
-	border-radius: 50%;
+    position: absolute;
+    left: 358px;
+    top: 776px;
+    width: 117px;
+    height: 114px;
+    background: rgba(217, 217, 217, 1.00);
+    border-radius: 50%;
 }
+
 .Volunteer_Volunteer .Username {
-	position: absolute;
-	left: 377px;
-	top: 899px;
-	width: 78px;
-	height: 19px;
-	color: rgba(0,0,0,1.00);
-	font-family: Inter;
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 18.75px;
+    position: absolute;
+    left: 377px;
+    top: 899px;
+    width: 78px;
+    height: 19px;
+    color: rgba(0, 0, 0, 1.00);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.75px;
 }
+
 .Volunteer_Volunteer .image11 {
-	position: absolute;
-	left: 1137px;
-	top: 784px;
-	width: 32px;
-	height: 32px;
-	object-fit: cover;
-	overflow: hidden;
+    position: absolute;
+    left: 1137px;
+    top: 784px;
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    overflow: hidden;
 }
+
 .Volunteer_Volunteer .image12 {
-	position: absolute;
-	left: 1090px;
-	top: 782px;
-	width: 36px;
-	height: 36px;
-	object-fit: cover;
-	overflow: hidden;
+    position: absolute;
+    left: 1090px;
+    top: 782px;
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    overflow: hidden;
 }
+
 .Volunteer_Volunteer .image8 {
-	position: absolute;
-	left: 93px;
-	top: 509px;
-	width: 79px;
-	height: 79px;
-	object-fit: cover;
-	overflow: hidden;
+    position: absolute;
+    left: 93px;
+    top: 509px;
+    width: 79px;
+    height: 79px;
+    object-fit: cover;
+    overflow: hidden;
 }
+
 .Volunteer_Volunteer .Available {
-	position: absolute;
-	left: 82px;
-	top: 591px;
-	width: 128px;
-	height: 61px;
-	color: rgba(109,93,93,1.00);
-	font-family: Inter;
-	font-size: 24px;
-	font-weight: 400;
-	line-height: 28.125px;
+    position: absolute;
+    left: 82px;
+    top: 591px;
+    width: 128px;
+    height: 61px;
+    color: rgba(109, 93, 93, 1.00);
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28.125px;
 }
+
 .Volunteer_Volunteer .Completed {
-	position: absolute;
-	left: 68px;
-	top: 933px;
-	width: 128px;
-	height: 61px;
-	color: rgba(109,93,93,1.00);
-	font-family: Inter;
-	font-size: 24px;
-	font-weight: 400;
-	line-height: 28.125px;
+    position: absolute;
+    left: 68px;
+    top: 933px;
+    width: 128px;
+    height: 61px;
+    color: rgba(109, 93, 93, 1.00);
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28.125px;
 }
+
 .Volunteer_Volunteer .Accepted {
-	position: absolute;
-	left: 76px;
-	top: 758px;
-	width: 128px;
-	height: 61px;
-	color: rgba(109,93,93,1.00);
-	font-family: Inter;
-	font-size: 24px;
-	font-weight: 400;
-	line-height: 28.125px;
+    position: absolute;
+    left: 76px;
+    top: 758px;
+    width: 128px;
+    height: 61px;
+    color: rgba(109, 93, 93, 1.00);
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28.125px;
 }
+
 .Volunteer_Volunteer .image9 {
-	position: absolute;
-	left: 82px;
-	top: 665px;
-	width: 80px;
-	height: 80px;
-	object-fit: cover;
-	overflow: hidden;
+    position: absolute;
+    left: 82px;
+    top: 665px;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    overflow: hidden;
 }
+
 .Volunteer_Volunteer .completedicon {
-	position: absolute;
-	left: 82px;
-	top: 832px;
-	width: 88px;
-	height: 88px;
-	object-fit: cover;
-	overflow: hidden;
+    position: absolute;
+    left: 82px;
+    top: 832px;
+    width: 88px;
+    height: 88px;
+    object-fit: cover;
+    overflow: hidden;
 }
+
 .Volunteer_Volunteer .image17 {
-	position: absolute;
-	left: 54px;
-	top: 144px;
-	width: 1327px;
-	height: 276px;
-	object-fit: cover;
-	overflow: hidden;
+    position: absolute;
+    left: 54px;
+    top: 144px;
+    width: 1327px;
+    height: 276px;
+    object-fit: cover;
+    overflow: hidden;
 }
+
 .Volunteer_Volunteer .Rectangle2 {
-	position: absolute;
-	left: 54px;
-	top: 144px;
-	width: 1327px;
-	height: 276px;
-	background: rgba(111,128,234,0.60);
+    position: absolute;
+    left: 54px;
+    top: 144px;
+    width: 1327px;
+    height: 276px;
+    background: rgba(111, 128, 234, 0.60);
 }
+
 .Volunteer_Volunteer .PostedJune62022 {
-	position: absolute;
-	left: 511px;
-	top: 697px;
-	width: 216px;
-	height: 24px;
-	color: rgba(84,74,74,1.00);
-	font-family: Inter;
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 18.75px;
+    position: absolute;
+    left: 511px;
+    top: 697px;
+    width: 216px;
+    height: 24px;
+    color: rgba(84, 74, 74, 1.00);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.75px;
 }
+
 .Volunteer_Volunteer .Welcomeusername {
-	position: absolute;
-	left: 455px;
-	top: 228px;
-	width: 574px;
-	height: 105px;
-	color: rgba(255,255,255,1.00);
-	font-family: Inter;
-	font-size: 48px;
-	font-weight: 400;
-	line-height: 56.25px;
+    position: absolute;
+    left: 455px;
+    top: 228px;
+    width: 574px;
+    height: 105px;
+    color: rgba(255, 255, 255, 1.00);
+    font-family: Inter;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 56.25px;
 }
+
 .Volunteer_Volunteer .ReadytotakeonataskViewthembelow {
-	position: absolute;
-	left: 455px;
-	top: 299px;
-	width: 504px;
-	height: 51px;
-	color: rgba(255,255,255,1.00);
-	font-family: Inter;
-	font-size: 24px;
-	font-weight: 500;
-	line-height: 28.125px;
+    position: absolute;
+    left: 455px;
+    top: 299px;
+    width: 504px;
+    height: 51px;
+    color: rgba(255, 255, 255, 1.00);
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.125px;
 }

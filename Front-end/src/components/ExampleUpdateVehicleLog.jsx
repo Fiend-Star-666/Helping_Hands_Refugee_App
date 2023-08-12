@@ -1,9 +1,4 @@
-import React, { Component } from 'react';
-import VehicleService from '../services/VehicleService';
-import "react-datepicker/dist/react-datepicker.css";  
-import DatePicker from "react-datepicker";  
-import {withRouter} from 'react-router-dom';
-import { parseISO, parseJSON } from 'date-fns';
+import "react-datepicker/dist/react-datepicker.css";
 
 
 /*

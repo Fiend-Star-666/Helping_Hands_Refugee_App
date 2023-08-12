@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @SpringBootApplication
 public class AthenaApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(AthenaApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(AthenaApplication.class, args);
+    }
 
 }

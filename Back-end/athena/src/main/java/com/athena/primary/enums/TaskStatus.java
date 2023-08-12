@@ -1,8 +1,8 @@
 package com.athena.primary.enums;
 
 public enum TaskStatus {
-	Available,
-	Accepted,
-	Abandoned,
-	Completed
+    Available,
+    Accepted,
+    Abandoned,
+    Completed
 }
