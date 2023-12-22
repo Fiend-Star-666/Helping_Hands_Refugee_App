@@ -6,7 +6,7 @@ Helping Hands was born out of a dynamic hackathon, with several skilled develope
 A special shout-out to the original team members for their valuable contributions during the hackathon phase:
 - Jenni
 - Courtney
-- Gursimran
+- Fiend_Star
 - Donna
 - Jennifer
 
